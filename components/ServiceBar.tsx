@@ -7,7 +7,7 @@ export default function ServiceBar() {
   const ticker = news.map(({ p, meta }) => ({ t: niceTitle(p, meta).title, h: href(meta, p.seq) }));
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 px-3 pb-3 sm:px-6 sm:pb-5">
-      <div className="pointer-events-auto mx-auto flex h-12 max-w-[1440px] items-center overflow-hidden rounded-full bg-white/90 pl-5 text-[12.5px] font-semibold shadow-[0_4px_24px_rgba(0,0,0,0.08)] backdrop-blur-md">
+      <div className="pointer-events-auto mx-auto flex h-12 max-w-[1280px] items-center overflow-hidden rounded-full bg-white/90 pl-5 text-[12.5px] font-medium shadow-[0_4px_12px_rgba(5,0,56,0.06)] backdrop-blur-md">
         <Link href="/worship/" className="flex shrink-0 items-center gap-3 whitespace-nowrap pr-4 hover:text-orange">
           <span className="eyebrow !text-[11px]">주일예배</span>
           <span className="hidden tabular-nums md:inline" style={{ fontFamily: "var(--font-display)" }}>8:00 · 10:00 · 12:00 · 14:00 · 15:40 · 20:00</span>

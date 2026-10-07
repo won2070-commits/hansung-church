@@ -14,7 +14,7 @@ export default function WorshipAccordion({ panels }: { panels: Panel[] }) {
         const on = open === i;
         return (
           <div key={p.key} onMouseEnter={() => setOpen(i)} onFocus={() => setOpen(i)}
-            className={`group relative overflow-hidden rounded-[32px] bg-ink text-canvas transition-[flex-grow] duration-700 ease-[cubic-bezier(.2,.8,.2,1)] lg:min-w-[120px] lg:basis-0 ${on ? "lg:grow-[3.2]" : "lg:grow"}`}>
+            className={`group relative overflow-hidden rounded-[28px] bg-ink text-canvas transition-[flex-grow] duration-700 ease-[cubic-bezier(.2,.8,.2,1)] lg:min-w-[120px] lg:basis-0 ${on ? "lg:grow-[3.2]" : "lg:grow"}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={p.img} alt="" loading="lazy" className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${on ? "scale-100 opacity-45" : "scale-110 opacity-70 grayscale"}`} />
             <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
@@ -29,7 +29,7 @@ export default function WorshipAccordion({ panels }: { panels: Panel[] }) {
               <ul className={`mt-8 space-y-0 transition-all duration-500 ${on ? "opacity-100" : "lg:pointer-events-none lg:opacity-0"}`}>
                 {p.rows.slice(0, 8).map(([name, time, place]) => (
                   <li key={name} className="grid grid-cols-[1fr_auto] gap-x-4 border-t border-white/15 py-2.5 text-[15px] sm:grid-cols-[1.3fr_1fr_1fr]">
-                    <span className="font-semibold">{name}</span>
+                    <span className="font-medium">{name}</span>
                     <span className="text-right tabular-nums text-orange-light sm:text-left">{time.replace(/^주일\s/, "")}</span>
                     <span className="hidden text-canvas/60 sm:block">{place}</span>
                   </li>

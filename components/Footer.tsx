@@ -8,11 +8,11 @@ export default function Footer() {
   const c = site().contact;
   return (
     <footer className="bg-ink pb-36 pt-24 text-canvas sm:pb-28">
-      <div className="mx-auto max-w-[1440px] px-6 sm:px-10">
+      <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
         <div className="flex flex-col justify-between gap-10 border-b border-white/15 pb-16 lg:flex-row lg:items-end">
           <p className="h-display max-w-4xl text-[clamp(2.4rem,5.5vw,5rem)]">언제든, 여기서<br />당신을 기다릴게요.</p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/newcomer/" className="pill pill-orange">새가족 등록 <ArrowUpRight /></Link>
+            <Link href="/newcomer/" className="pill bg-white text-ink hover:bg-yellow">새가족 등록 <ArrowUpRight /></Link>
             <a href={`tel:${c.tel}`} className="pill pill-line">{c.tel}</a>
           </div>
         </div>

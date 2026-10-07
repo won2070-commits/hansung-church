@@ -29,12 +29,12 @@ export default function Nav() {
   return (
     <>
       <header className={`fixed inset-x-0 top-0 z-50 px-3 pt-3 transition-transform duration-500 sm:px-6 sm:pt-5 ${hidden && !open ? "-translate-y-[130%]" : ""}`}>
-        <nav aria-label="주요 메뉴" className="mx-auto flex h-16 max-w-[1440px] items-center justify-between rounded-full bg-white/90 pl-5 pr-2 shadow-[0_4px_24px_rgba(0,0,0,0.06)] backdrop-blur-md sm:pl-7">
+        <nav aria-label="주요 메뉴" className="mx-auto flex h-16 max-w-[1280px] items-center justify-between rounded-full bg-white/90 pl-5 pr-2 shadow-[0_4px_12px_rgba(5,0,56,0.06)] backdrop-blur-md sm:pl-7">
           <Link href="/" aria-label="한성교회 홈"><Logo /></Link>
           <ul className="hidden items-center gap-1 lg:flex">
             {TOP.map(([t, h]) => (
               <li key={h}>
-                <Link href={h} className={`rounded-full px-4 py-2 text-[15px] font-semibold tracking-[-0.02em] transition-colors hover:bg-canvas ${path?.startsWith(h) ? "bg-canvas" : ""}`}>{t}</Link>
+                <Link href={h} className={`rounded-full px-4 py-2 text-[15px] font-medium tracking-[-0.02em] transition-colors hover:bg-canvas ${path?.startsWith(h) ? "bg-canvas" : ""}`}>{t}</Link>
               </li>
             ))}
           </ul>
@@ -53,11 +53,11 @@ export default function Nav() {
 
       <div id="menu-overlay" role="dialog" aria-modal="true" aria-label="전체 메뉴" hidden={!open}
         className="fixed inset-0 z-40 overflow-y-auto bg-ink text-canvas">
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-6 pb-16 pt-32 sm:px-10 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mx-auto grid max-w-[1280px] gap-12 px-6 pb-16 pt-32 sm:px-8 md:grid-cols-2 xl:grid-cols-4">
           {MENU.map((g, gi) => (
             <div key={g.title} className="animate-[fadeUp_.6s_both]" style={{ animationDelay: `${gi * 70}ms` }}>
               <p className="eyebrow mb-5 text-canvas/50">{g.en}</p>
-              <p className="mb-6 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">{g.title}</p>
+              <p className="mb-6 text-4xl font-medium tracking-[-0.04em] sm:text-5xl">{g.title}</p>
               <ul className="space-y-1">
                 {g.items.map(([t, h]) => (
                   <li key={h}>

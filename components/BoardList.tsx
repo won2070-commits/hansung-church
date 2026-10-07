@@ -23,12 +23,12 @@ export default function BoardList({ items, kind }: { items: Item[]; kind: "video
         <label className="relative w-full max-w-md">
           <span className="sr-only">게시물 검색</span>
           <input value={q} onChange={(e) => { setQ(e.target.value); setN(PAGE); }} type="search" placeholder="제목, 설교자, 본문으로 찾기"
-            className="w-full rounded-full border border-ink/20 bg-white px-6 py-3.5 text-[15px] outline-none transition focus:border-ink" />
+            className="h-11 w-full rounded-[8px] border border-[var(--hairline-strong)] bg-white px-4 text-[15px] outline-none transition focus:border-2 focus:border-orange" />
         </label>
         <p className="text-sm text-slate" aria-live="polite">{q ? `검색 결과 ${found.length}건` : `전체 ${items.length}건`}</p>
       </div>
 
-      {found.length === 0 && <p className="rounded-[28px] bg-white p-10 text-center text-slate">찾는 글이 없습니다. 다른 낱말로 검색해 보세요.</p>}
+      {found.length === 0 && <p className="rounded-[16px] border border-dust bg-white p-10 text-center text-slate">찾는 글이 없습니다. 다른 낱말로 검색해 보세요.</p>}
 
       {kind === "text" ? (
         <ul className="divide-y divide-dust border-y border-dust">
@@ -36,7 +36,7 @@ export default function BoardList({ items, kind }: { items: Item[]; kind: "video
             <li key={i.seq}>
               <Link href={i.href} className="group grid grid-cols-[1fr_auto] items-center gap-6 py-6 sm:grid-cols-[120px_1fr_auto]">
                 <span className="hidden text-sm text-slate tabular-nums sm:block" style={{ fontFamily: "var(--font-display)" }}>{i.date}</span>
-                <span className="text-lg font-semibold tracking-[-0.025em] group-hover:text-orange sm:text-xl">{i.title}</span>
+                <span className="text-lg font-medium tracking-[-0.025em] group-hover:text-orange sm:text-xl">{i.title}</span>
                 <ArrowUpRight className="text-slate transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-orange" />
               </Link>
             </li>
@@ -47,15 +47,15 @@ export default function BoardList({ items, kind }: { items: Item[]; kind: "video
           {shown.map((i) => (
             <li key={i.seq}>
               <Link href={i.href} className="group block">
-                <div className={`relative overflow-hidden rounded-[28px] bg-ghost ${kind === "video" ? "aspect-video" : "aspect-[4/5]"}`}>
+                <div className={`relative overflow-hidden rounded-[16px] bg-ghost ${kind === "video" ? "aspect-video" : "aspect-[4/5]"}`}>
                   {i.cover
                     // eslint-disable-next-line @next/next/no-img-element
                     ? <img src={i.cover} alt="" loading="lazy" className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 ${kind === "video" && i.cover.includes("ytimg") ? "" : ""}`} />
                     : <div className="grid h-full place-items-center text-sm text-slate">이미지 없음</div>}
-                  {i.video && <span className="absolute bottom-4 left-4 grid h-12 w-12 place-items-center rounded-full bg-white/95 text-ink transition-colors group-hover:bg-orange group-hover:text-white"><Play size={18} /></span>}
+                  {i.video && <span className="absolute bottom-4 left-4 grid h-12 w-12 place-items-center rounded-full bg-white/95 text-ink transition-colors group-hover:bg-yellow"><Play size={18} /></span>}
                 </div>
                 <p className="mt-4 text-[13px] text-slate tabular-nums" style={{ fontFamily: "var(--font-display)" }}>{[i.date, i.bible].filter(Boolean).join(" · ")}</p>
-                <p className="mt-1.5 line-clamp-2 text-lg font-semibold leading-snug tracking-[-0.03em] group-hover:text-orange">{i.title}</p>
+                <p className="mt-1.5 line-clamp-2 text-lg font-medium leading-snug tracking-[-0.03em] group-hover:text-orange">{i.title}</p>
                 {i.who && <p className="mt-1 text-sm text-slate">{i.who}</p>}
               </Link>
             </li>

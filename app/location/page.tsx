@@ -14,7 +14,7 @@ export default function Page() {
     <>
       <PageHero en="Visit us" ghost="VISIT" crumbs={[["교회안내", "/about/"], ["오시는길", "/location/"]]}
         title={<>우리,<br />여기서 만나요.</>}
-        desc={<><span className="font-semibold text-ink">{c.address}</span> (우 {c.zip})<br />대표전화 {c.tel} · 팩스 {c.fax}</>}>
+        desc={<><span className="font-medium text-ink">{c.address}</span> (우 {c.zip})<br />대표전화 {c.tel} · 팩스 {c.fax}</>}>
         <div className="flex flex-wrap gap-2">
           <a href={`https://map.kakao.com/link/search/${q}`} target="_blank" rel="noopener" className="pill pill-ink">카카오맵 ↗</a>
           <a href={`https://map.naver.com/p/search/${q}`} target="_blank" rel="noopener" className="pill pill-line">네이버 지도 ↗</a>
@@ -23,11 +23,11 @@ export default function Page() {
         </div>
       </PageHero>
       <Wrap className="pb-24">
-        <div className="aspect-[4/3] overflow-hidden rounded-[40px] bg-ghost sm:aspect-[21/9]" data-reveal>
+        <div className="aspect-[4/3] overflow-hidden rounded-[32px] bg-ghost sm:aspect-[21/9]" data-reveal>
           <iframe title="한성교회 위치 지도" src={`https://maps.google.com/maps?q=${q}&z=16&output=embed`} className="h-full w-full grayscale-[35%]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
         </div>
       </Wrap>
-      <Wrap className="grid gap-16 pb-40 lg:grid-cols-2">
+      <Wrap className="grid gap-16 pb-32 lg:grid-cols-2">
         <section data-reveal>
           <div className="mb-4 flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -38,7 +38,7 @@ export default function Page() {
           <ul className="space-y-3">
             {subway.map((l) => {
               const [line, ...rest] = l.split(/\s{2,}/);
-              return <li key={l} className="flex gap-4 rounded-[24px] bg-white p-5"><span className="shrink-0 rounded-full bg-ink px-3 py-1 text-sm font-semibold text-canvas">{line}</span><span className="leading-relaxed">{rest.join(" ")}</span></li>;
+              return <li key={l} className="flex gap-4 rounded-[16px] border border-dust bg-white p-5"><span className="shrink-0 rounded-full bg-ink px-3 py-1 text-sm font-medium text-canvas">{line}</span><span className="leading-relaxed">{rest.join(" ")}</span></li>;
             })}
           </ul>
         </section>
@@ -52,9 +52,9 @@ export default function Page() {
           <div className="space-y-8">
             {bus.map((b) => (
               <div key={b.kind}>
-                <p className="mb-3 font-semibold text-orange">{b.kind}</p>
+                <p className="mb-3 font-medium text-orange">{b.kind}</p>
                 <ul className="divide-y divide-dust border-y border-dust">
-                  {b.rows.map((r) => { const [stop, nums] = r.split(" - "); return <li key={r} className="flex justify-between gap-4 py-3"><span>{stop}</span><span className="text-right font-semibold tabular-nums">{nums}</span></li>; })}
+                  {b.rows.map((r) => { const [stop, nums] = r.split(" - "); return <li key={r} className="flex justify-between gap-4 py-3"><span>{stop}</span><span className="text-right font-medium tabular-nums">{nums}</span></li>; })}
                 </ul>
               </div>
             ))}

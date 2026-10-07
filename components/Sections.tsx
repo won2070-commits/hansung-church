@@ -23,10 +23,10 @@ export function Hub({ section }: { section: Section }) {
     <>
       <PageHero en={s.en} title={s.title} desc={s.desc} ghost={s.ghost} crumbs={[[section === "tv" ? "한성TV" : "한성LIFE", `/${section}/`]]}>
         <div className="flex flex-wrap gap-2">
-          {boardsOf(section).map((b) => <Link key={b.slug} href={href(b)} className="rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold hover:border-ink">{b.name}</Link>)}
+          {boardsOf(section).map((b) => <Link key={b.slug} href={href(b)} className="rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-medium hover:border-ink">{b.name}</Link>)}
         </div>
       </PageHero>
-      <Wrap className="space-y-28 pb-40">
+      <Wrap className="space-y-24 pb-32">
         {boardsOf(section).map((m) => {
           const b = board(m.slug);
           const items = b.posts.slice(0, m.kind === "video" ? 3 : 4);
@@ -46,14 +46,14 @@ export function Hub({ section }: { section: Section }) {
                     <li key={p.seq} data-reveal>
                       <Link href={href(m, p.seq)} className="group block">
                         {m.kind !== "text" && (
-                          <div className={`relative mb-4 overflow-hidden rounded-[28px] bg-ghost ${m.kind === "video" ? "aspect-video" : "aspect-[4/5]"}`}>
+                          <div className={`relative mb-4 overflow-hidden rounded-[16px] bg-ghost ${m.kind === "video" ? "aspect-video" : "aspect-[4/5]"}`}>
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             {c && <img src={c} alt="" loading="lazy" className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 ${c.includes("ytimg") ? "" : ""}`} />}
-                            {p.youtube[0] && <span className="absolute bottom-4 left-4 grid h-11 w-11 place-items-center rounded-full bg-white/95 group-hover:bg-orange group-hover:text-white"><Play size={16} /></span>}
+                            {p.youtube[0] && <span className="absolute bottom-4 left-4 grid h-11 w-11 place-items-center rounded-full bg-white/95 group-hover:bg-yellow"><Play size={16} /></span>}
                           </div>
                         )}
                         <p className="text-[13px] text-slate" style={{ fontFamily: "var(--font-display)" }}>{fmtDate(p.date)}</p>
-                        <p className={`mt-1 line-clamp-2 font-semibold leading-snug tracking-[-0.03em] group-hover:text-orange ${m.kind === "text" ? "rounded-[24px] bg-white p-6 text-lg" : "text-lg"}`}>{t.title}</p>
+                        <p className={`mt-1 line-clamp-2 font-medium leading-snug tracking-[-0.03em] group-hover:text-orange ${m.kind === "text" ? "rounded-[16px] border border-dust bg-white p-6 text-lg" : "text-lg"}`}>{t.title}</p>
                         {t.who && <p className="mt-1 text-sm text-slate">{t.who}</p>}
                       </Link>
                     </li>
@@ -83,11 +83,11 @@ export function BoardPage({ section, slug }: { section: Section; slug: string })
         <div className="flex flex-wrap gap-2">
           {boardsOf(section).map((x) => (
             <Link key={x.slug} href={href(x)} aria-current={x.slug === slug ? "page" : undefined}
-              className={`rounded-full px-4 py-2 text-sm font-semibold ${x.slug === slug ? "bg-ink text-canvas" : "border border-ink/15 bg-white hover:border-ink"}`}>{x.name}</Link>
+              className={`rounded-full px-4 py-2 text-sm font-medium ${x.slug === slug ? "bg-ink text-canvas" : "border border-ink/15 bg-white hover:border-ink"}`}>{x.name}</Link>
           ))}
         </div>
       </PageHero>
-      <Wrap className="pb-40"><BoardList items={items} kind={m.kind} /></Wrap>
+      <Wrap className="pb-32"><BoardList items={items} kind={m.kind} /></Wrap>
     </>
   );
 }
@@ -102,8 +102,8 @@ export function PostPage({ section, slug, seq }: { section: Section; slug: strin
   const newer = posts[i - 1]; const older = posts[i + 1];
   const official = `https://www.hansungchurch.com/EZ/rb/view.asp?seq=${p.seq}&BoardModule=${m.section === "tv" ? "Media" : "Board"}&tbcode=${m.code}`;
   return (
-    <article className="pb-40">
-      <header className="mx-auto max-w-5xl px-6 pb-12 pt-36 sm:px-10 sm:pt-44">
+    <article className="pb-32">
+      <header className="mx-auto max-w-5xl px-6 pb-12 pt-36 sm:px-8 sm:pt-44">
         <nav aria-label="현재 위치" className="mb-8 flex flex-wrap items-center gap-2 text-sm text-slate">
           <Link href="/" className="hover:text-orange">홈</Link><span className="text-dust">/</span>
           <Link href={`/${section}/`} className="hover:text-orange">{section === "tv" ? "한성TV" : "한성LIFE"}</Link><span className="text-dust">/</span>
@@ -112,27 +112,27 @@ export function PostPage({ section, slug, seq }: { section: Section; slug: strin
         <p className="eyebrow mb-5">{m.name}</p>
         <h1 className="h-display text-[clamp(2.1rem,4.6vw,4rem)]">{t.title}</h1>
         <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-2 text-[15px] text-slate">
-          {p.bible && <div className="flex gap-2"><dt className="font-semibold text-ink">본문</dt><dd>{p.bible}</dd></div>}
-          {t.who && <div className="flex gap-2"><dt className="font-semibold text-ink">{m.slug.startsWith("praise") || m.slug === "choir" ? "인도" : "설교"}</dt><dd>{t.who}</dd></div>}
-          <div className="flex gap-2"><dt className="font-semibold text-ink">날짜</dt><dd style={{ fontFamily: "var(--font-display)" }}>{fmtDate(p.date)}</dd></div>
+          {p.bible && <div className="flex gap-2"><dt className="font-medium text-ink">본문</dt><dd>{p.bible}</dd></div>}
+          {t.who && <div className="flex gap-2"><dt className="font-medium text-ink">{m.slug.startsWith("praise") || m.slug === "choir" ? "인도" : "설교"}</dt><dd>{t.who}</dd></div>}
+          <div className="flex gap-2"><dt className="font-medium text-ink">날짜</dt><dd style={{ fontFamily: "var(--font-display)" }}>{fmtDate(p.date)}</dd></div>
         </dl>
       </header>
 
       {p.youtube.map((id) => (
         <div key={id} className="mx-auto mb-10 max-w-6xl px-3 sm:px-6">
-          <div className="aspect-video overflow-hidden rounded-[28px] bg-ink sm:rounded-[40px]">
+          <div className="aspect-video overflow-hidden rounded-[16px] bg-ink sm:rounded-[32px]">
             <iframe className="h-full w-full" src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`} title={t.title} loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
           </div>
         </div>
       ))}
 
-      <div className="mx-auto max-w-3xl px-6 sm:px-10">
+      <div className="mx-auto max-w-3xl px-6 sm:px-8">
         {p.body && <div className="prose-post" dangerouslySetInnerHTML={{ __html: p.body }} />}
-        {!p.body && !p.youtube[0] && <p className="rounded-[24px] bg-white p-8 text-slate">이 글은 영상 또는 본문이 옮겨지지 않았습니다. <a className="text-orange underline" href={official} target="_blank" rel="noopener">공식 게시판에서 보기</a></p>}
+        {!p.body && !p.youtube[0] && <p className="rounded-[16px] border border-dust bg-white p-8 text-slate">이 글은 영상 또는 본문이 옮겨지지 않았습니다. <a className="text-orange underline" href={official} target="_blank" rel="noopener">공식 게시판에서 보기</a></p>}
 
         {p.files.length > 0 && (
-          <div className="mt-12 rounded-[28px] bg-white p-6">
+          <div className="mt-12 rounded-[16px] border border-dust bg-white p-6">
             <p className="eyebrow mb-4">첨부파일</p>
             <ul className="space-y-2">
               {p.files.map((f) => (
@@ -143,8 +143,8 @@ export function PostPage({ section, slug, seq }: { section: Section; slug: strin
         )}
 
         <nav aria-label="다른 글" className="mt-16 grid gap-3 border-t border-dust pt-10 sm:grid-cols-2">
-          {older ? <Link href={href(m, older.seq)} className="rounded-[24px] bg-white p-6 hover:bg-lifted"><span className="text-sm text-slate">이전 글</span><span className="mt-1 line-clamp-2 block font-semibold">{niceTitle(older, m).title}</span></Link> : <span />}
-          {newer ? <Link href={href(m, newer.seq)} className="rounded-[24px] bg-white p-6 text-right hover:bg-lifted"><span className="text-sm text-slate">다음 글</span><span className="mt-1 line-clamp-2 block font-semibold">{niceTitle(newer, m).title}</span></Link> : <span />}
+          {older ? <Link href={href(m, older.seq)} className="rounded-[16px] border border-dust bg-white p-6 hover:bg-lifted"><span className="text-sm text-slate">이전 글</span><span className="mt-1 line-clamp-2 block font-medium">{niceTitle(older, m).title}</span></Link> : <span />}
+          {newer ? <Link href={href(m, newer.seq)} className="rounded-[16px] border border-dust bg-white p-6 text-right hover:bg-lifted"><span className="text-sm text-slate">다음 글</span><span className="mt-1 line-clamp-2 block font-medium">{niceTitle(newer, m).title}</span></Link> : <span />}
         </nav>
         <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
           <Link href={href(m)} className="pill pill-ink">{m.name} 목록</Link>

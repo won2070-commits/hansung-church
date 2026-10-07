@@ -2,9 +2,9 @@
 export default function Logo({ light = false }: { light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5 leading-none">
-      <span className="relative grid h-9 w-9 place-items-center rounded-full bg-orange text-[15px] font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
+      <span className="relative grid h-9 w-9 place-items-center rounded-full bg-yellow text-[15px] font-bold text-ink" style={{ fontFamily: "var(--font-display)" }}>
         H
-        <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-orange-light ring-2 ring-white" />
+        <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-orange ring-2 ring-white" />
       </span>
       <span className="flex flex-col">
         <span className={`text-[17px] font-bold tracking-[-0.03em] ${light ? "text-canvas" : "text-ink"}`}>한성교회</span>

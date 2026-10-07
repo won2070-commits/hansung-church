@@ -21,14 +21,18 @@
 |---|---|---|
 | 레퍼런스 1 | SOUL Church (Awwwards Honorable Mention, Webflow) | 섹션 순서·글자 크기·분위기: 풀블리드 히어로 + 떠 있는 "소식" 카드, 대형 환영 문구, 미션 마퀴, 노이즈 질감 예배 섹션, 가치 마퀴, 하단 고정 예배시간 바 |
 | 레퍼런스 2 | Passion City Church | 미디어·리더십 배치: 스타디움 라운드 히어로, 담임목사 소개, 설교 목록 |
-| 스킨(getdesign) | Mastercard DESIGN.md | 색·폰트·간격·질감만: 크림 캔버스, 잉크 블랙, 시그널 오렌지, 40px 스타디움 모서리, 알약 버튼, 원형 초상+위성 버튼, 오렌지 궤도선, 다크 푸터 |
+| 스킨(getdesign) | **Miro DESIGN.md** (2026-10-07 교체, 이전: Mastercard) | 색·폰트·간격·질감만: 흰 캔버스, 검정 알약 CTA, 캐너리 옐로(로고·강조), 브랜드 블루(행동·링크), 스티키노트 파스텔 카드, 화이트보드 점 격자 |
 
 Webflow 템플릿·Awwwards에서 수집. Savee·Pinterest는 로그인/보안문자 때문에 제외.
 
-## 5. 디자인 토큰
-- 색: canvas `#F3F0EE` · lifted `#FCFBFA` · ink `#141413` · orange `#CF4500` · orange-light `#F37338` · slate `#696969` · ghost `#E8E2DA`
-- 글꼴: 한글 Pretendard(본문 450), 라틴 Outfit. 제목 굵기 600, 자간 -2~-3%. 대문자 트래킹은 eyebrow(작은 분류 라벨)에만.
-- 모서리: 미디어 40px, 버튼 999px(알약), 카드 28~40px. 직각 금지.
+## 5. 디자인 토큰 (Miro)
+- 스킨 교체 원칙: **구조·섹션 순서·레이아웃·애니메이션·인터랙션은 절대 바꾸지 않고, 색상·폰트·간격·질감만 바꾼다.**
+- 색: canvas `#ffffff` · surface `#fafbfc` · ink `#1c1c1e` · charcoal `#2c2c34` · slate `#555a6a` · hairline `#e0e2e8` · blue `#4262ff`(CSS 토큰명 `orange`) · yellow `#ffd02f`(토큰명 `orange-light`) · 파스텔 yellow/coral `#ffc6c6`/rose `#fde0f0`/teal `#c3faf5`/peach `#ffe6cd`
+- 옐로는 로고·형광펜 강조(`.hl`)·작은 점에만. 큰 배경·일반 버튼 금지. 주 버튼은 검정 알약, 보조 행동은 블루 알약.
+- 글꼴: 한글 Pretendard, 라틴 Figtree(Roobert PRO 대체). 제목 500, 본문 400, 700 안 씀.
+- 모서리: 버튼 9999px · 파스텔 카드 28px · CTA 배너 32px · 미디어/목록 카드 16px · 입력창 8px. 그림자는 rgba(5,0,56,…) 낮게.
+- 간격: 최대폭 1280px, 섹션 96~128px.
+- 질감: 예배 섹션은 화이트보드 점 격자(`.grain`).
 
 ## 6. 하지 말 것
 - "SECTION 01" 같은 메타 라벨, 이모지, 의미 없는 장식 배지.

@@ -5,9 +5,9 @@ export default function PageHero({ en, title, desc, crumbs, ghost, children }: {
   en: string; title: React.ReactNode; desc?: React.ReactNode; crumbs?: [string, string][]; ghost?: string; children?: React.ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden px-6 pb-16 pt-36 sm:px-10 sm:pt-44 md:pb-24">
-      {ghost && <p className="pointer-events-none absolute -right-6 top-24 select-none whitespace-nowrap text-[clamp(5rem,15vw,15rem)] font-semibold leading-none tracking-[-0.05em] text-ghost" aria-hidden="true" style={{ fontFamily: "var(--font-display)" }}>{ghost}</p>}
-      <div className="relative mx-auto max-w-[1440px]">
+    <section className="relative overflow-hidden px-6 pb-16 pt-36 sm:px-8 sm:pt-44 md:pb-24">
+      {ghost && <p className="pointer-events-none absolute -right-6 top-24 select-none whitespace-nowrap text-[clamp(5rem,15vw,15rem)] font-medium leading-none tracking-[-0.05em] text-ghost" aria-hidden="true" style={{ fontFamily: "var(--font-display)" }}>{ghost}</p>}
+      <div className="relative mx-auto max-w-[1280px]">
         {crumbs && (
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap items-center gap-2 text-sm text-slate animate-[fadeUp_.8s_both]">
             <Link href="/" className="hover:text-orange">홈</Link>
@@ -24,5 +24,5 @@ export default function PageHero({ en, title, desc, crumbs, ghost, children }: {
 }
 
 export function Wrap({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <div className={`mx-auto max-w-[1440px] px-6 sm:px-10 ${className}`}>{children}</div>;
+  return <div className={`mx-auto max-w-[1280px] px-6 sm:px-8 ${className}`}>{children}</div>;
 }

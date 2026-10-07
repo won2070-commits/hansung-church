@@ -1,22 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ServiceBar from "@/components/ServiceBar";
 import Motion from "@/components/Motion";
 
-const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
+const figtree = Figtree({ variable: "--font-figtree", subsets: ["latin"], weight: ["400", "500", "600"] });
 
 export const metadata: Metadata = {
   title: { default: "한성교회 — 행복한 사람이 행복한 세상을 만듭니다", template: "%s — 한성교회" },
   description: "서울 양천구 신정동 한성교회. 도원욱 담임목사의 설교, 예배 안내, 새가족 등록, 교회 소식을 만나보세요.",
 };
-export const viewport: Viewport = { themeColor: "#f3f0ee" };
+export const viewport: Viewport = { themeColor: "#ffffff" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" className={outfit.variable}>
+    <html lang="ko" className={figtree.variable}>
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
       </head>

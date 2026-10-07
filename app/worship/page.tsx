@@ -14,11 +14,11 @@ export default function Page() {
         title={<>함께 예배하는<br />시간과 자리.</>}
         desc="본당은 워십센터 2층 H-홀입니다. 방문 전 변경 사항은 교회 사무실(02-2603-7200)로 확인해 주세요.">
         <div className="flex flex-wrap gap-2">
-          {Object.keys(w).map((k, i) => <a key={k} href={`#w${i}`} className="rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold hover:border-ink">{k}</a>)}
+          {Object.keys(w).map((k, i) => <a key={k} href={`#w${i}`} className="rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-medium hover:border-ink">{k}</a>)}
         </div>
       </PageHero>
       <Wrap className="pb-24">
-        <div className="mb-24 aspect-[21/9] overflow-hidden rounded-[40px] bg-ink" data-scale>
+        <div className="mb-24 aspect-[21/9] overflow-hidden rounded-[32px] bg-ink" data-scale>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={asset("assets/home/hero-stage.webp")} alt="H-홀에서 드리는 주일예배" className="h-full w-full object-cover" />
         </div>
@@ -34,8 +34,8 @@ export default function Page() {
                 <tbody>
                   {rows.map(([n, t, p]) => (
                     <tr key={n} className="border-t border-dust last:border-b" data-reveal>
-                      <th scope="row" className="py-5 pr-4 text-lg font-semibold tracking-[-0.02em]">{n}</th>
-                      <td className="py-5 pr-4 text-lg font-semibold text-orange tabular-nums">{t}</td>
+                      <th scope="row" className="py-5 pr-4 text-lg font-medium tracking-[-0.02em]">{n}</th>
+                      <td className="py-5 pr-4 text-lg font-medium text-orange tabular-nums">{t}</td>
                       <td className="hidden py-5 text-slate sm:table-cell">{p}</td>
                     </tr>
                   ))}
@@ -45,11 +45,11 @@ export default function Page() {
           ))}
         </div>
       </Wrap>
-      <Wrap className="pb-40">
+      <Wrap className="pb-32">
         <div className="grid gap-4 sm:grid-cols-3">
           {[["예배 생방송", "/live/", "현장에 오지 못해도 함께"], ["처음 오셨나요?", "/newcomer/", "온라인 새가족 등록"], ["오시는 길", "/location/", "신정로13길 21"]].map(([t, h, d]) => (
-            <Link key={h} href={h} className="group flex items-end justify-between rounded-[32px] bg-white p-7 hover:bg-ink hover:text-canvas" data-reveal>
-              <div><p className="text-sm text-slate group-hover:text-canvas/60">{d}</p><p className="mt-1 text-2xl font-semibold tracking-[-0.03em]">{t}</p></div>
+            <Link key={h} href={h} className="group flex items-end justify-between rounded-[28px] border border-dust bg-white p-7 hover:bg-ink hover:text-canvas" data-reveal>
+              <div><p className="text-sm text-slate group-hover:text-canvas/60">{d}</p><p className="mt-1 text-2xl font-medium tracking-[-0.03em]">{t}</p></div>
               <ArrowUpRight />
             </Link>
           ))}
