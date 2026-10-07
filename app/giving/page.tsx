@@ -11,7 +11,7 @@ export default function Page() {
       <PageHero en="Giving" ghost="GIVING" crumbs={[["교회안내", "/about/"], ["온라인헌금", "/giving/"]]}
         title={<>기쁨으로 드리는<br />온라인 헌금.</>} desc={g.note} />
       <Wrap className="pb-24">
-        <ul className="grid gap-4 md:grid-cols-3">
+        <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {g.accounts.map((a) => (
             <li key={a.no} className="flex flex-col justify-between gap-12 rounded-[32px] bg-ink p-8 text-canvas" data-reveal>
               <div className="flex items-center justify-between">
