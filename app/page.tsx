@@ -40,6 +40,22 @@ export default function Home() {
   const bulletin = board("bulletin").posts[0];
   const notices = board("notice").posts.slice(0, 3);
   const g = s.greeting;
+  // 후기: 특새 은혜나눔 중 짧은 감사·간증글만(개인 사정·도움 요청 글은 제외)
+  const graceMeta = BOARDS.find((b) => b.slug === "dawn-grace")!;
+  const grace = [519900, 519896, 519895, 519894, 519897, 519887, 519885, 519904, 519893, 519903]
+    .map((seq) => board("dawn-grace").posts.find((p) => p.seq === seq))
+    .filter((p): p is NonNullable<typeof p> => !!p)
+    .map((p) => {
+      const t = p.body.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+      return { title: p.title, date: fmtDate(p.date).slice(0, 7), href: href(graceMeta, p.seq), text: t.length > 92 ? t.slice(0, t.lastIndexOf(" ", 92)) + "…" : t };
+    });
+  const tones = ["bg-yellow", "bg-rose", "bg-teal", "bg-peach", "bg-coral"];
+  const steps = [
+    { n: "01", t: "예배에 오세요", d: "주일 오전 8시부터 저녁 8시까지 여섯 번의 예배가 있습니다. 본당은 워십센터 2층 H-홀입니다.", h: "/worship/", cta: "예배 시간 보기", c: "bg-teal" },
+    { n: "02", t: "온라인으로 가등록", d: s.newcomer.lines[2], h: "/newcomer/", cta: "등록 설문지", c: "bg-yellow" },
+    { n: "03", t: "등록 심방", d: s.newcomer.lines[4] + " " + s.newcomer.lines[5].replace(/^\*/, ""), h: "/newcomer/", cta: "새가족 안내", c: "bg-rose" },
+    { n: "04", t: "함께 행복해져요", d: "예수를 만나 행복해지고, 예수를 누림으로 그 행복이 깊어지며, 예수를 전함으로 더 큰 행복을 만듭니다.", h: "/happy/", cta: "행축 이야기", c: "bg-peach" },
+  ];
 
   return (
     <>
@@ -161,6 +177,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 후기 — 성도들의 은혜 나눔, 끝없이 흐르는 카드 두 줄 */}
+      <section className="overflow-hidden py-24 md:py-32" aria-labelledby="grace-title">
+        <div className="mx-auto mb-14 flex max-w-[1280px] flex-wrap items-end justify-between gap-6 px-6 sm:px-8">
+          <div>
+            <p className="eyebrow mb-6" data-reveal>Stories of grace</p>
+            <h2 id="grace-title" className="h-display text-[clamp(2.4rem,5vw,4.8rem)]" data-reveal>성도들이 나눈<br /><span className="hl">은혜</span>의 고백.</h2>
+          </div>
+          <Link href="/life/dawn-grace/" className="pill pill-line" data-reveal>은혜나눔 전체 <ArrowUpRight /></Link>
+        </div>
+        <div className="space-y-4">
+          {[0, 1].map((row) => {
+            const items = grace.filter((_, i) => i % 2 === row);
+            return (
+              <div key={row} className="marquee-wrap overflow-hidden">
+                <ul className={`marquee gap-4 pr-4 ${row ? "marquee-rev" : ""}`} style={{ ["--speed" as string]: row ? "70s" : "60s" }}>
+                  {[...items, ...items].map((q, i) => (
+                    <li key={i} className={`w-[min(82vw,400px)] shrink-0 rounded-[28px] p-7 ${tones[(i + row * 2) % tones.length]}`} aria-hidden={i >= items.length}>
+                      <Link href={q.href} tabIndex={i >= items.length ? -1 : 0} className="flex h-full flex-col justify-between gap-8">
+                        <p className="text-[17px] leading-relaxed text-charcoal">“{q.text}”</p>
+                        <div className="flex items-end justify-between gap-4">
+                          <div className="min-w-0">
+                            <p className="truncate font-medium">{q.title}</p>
+                            <p className="mt-1 text-sm text-ink/60">특새 은혜나눔 · {q.date}</p>
+                          </div>
+                          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white/80"><ArrowUpRight size={16} /></span>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
       {/* 한성 LIFE — 빈칸 없는 벤토 (4열 × 3행 = 12칸: 4+2+1+1+2+1+1) */}
       <section className="mx-auto max-w-[1280px] px-6 py-24 sm:px-8 md:py-32">
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
@@ -239,6 +291,29 @@ export default function Home() {
       {/* Values marquee — SOUL 가치 마퀴 */}
       <section className="overflow-hidden bg-ink py-12 text-canvas" aria-label="행복의 세 걸음">
         <Marquee words={["예수를 만나 행복", "예수를 누려 깊어지는 행복", "예수를 전해 더 큰 행복"]} reverse speed="52s" />
+      </section>
+
+      {/* 프로세스 — 처음 오신 분의 네 걸음, 스크롤하면 카드가 차곡차곡 쌓인다 */}
+      <section className="mx-auto max-w-[1280px] px-6 pt-24 sm:px-8 md:pt-32" aria-labelledby="steps-title">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            <p className="eyebrow mb-6" data-reveal>Your first steps</p>
+            <h2 id="steps-title" className="h-display text-[clamp(2.4rem,5vw,4.8rem)]" data-reveal>처음 오신 분의<br />네 걸음.</h2>
+            <p className="mt-6 max-w-md text-lg text-slate" data-reveal>예배에 한 번 오시는 것부터 시작입니다. 다음 걸음은 저희가 함께하겠습니다.</p>
+          </div>
+          <ol className="space-y-6 pb-8">
+            {steps.map((st, i) => (
+              <li key={st.n} className={`sticky rounded-[28px] p-8 shadow-[0_4px_12px_rgba(5,0,56,0.06)] sm:p-10 ${st.c}`} style={{ top: `${110 + i * 22}px` }}>
+                <div className="flex items-start justify-between gap-6">
+                  <span className="text-[clamp(3rem,6vw,5rem)] font-medium leading-none tracking-[-0.04em]" style={{ fontFamily: "var(--font-display)" }}>{st.n}</span>
+                  <Link href={st.h} className="pill pill-ink !py-2.5 text-sm">{st.cta} <ArrowUpRight size={15} /></Link>
+                </div>
+                <h3 className="h-section mt-10 text-[clamp(1.7rem,3vw,2.4rem)]">{st.t}</h3>
+                <p className="mt-3 max-w-xl text-lg leading-relaxed text-charcoal">{st.d}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
       </section>
 
       {/* Action — 새가족 */}
