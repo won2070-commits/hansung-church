@@ -1,28 +1,27 @@
 @import "tailwindcss";
 
-/* 스킨: Miro DESIGN.md — 색·폰트·간격·질감만 차용(구조·배치·모션은 그대로).
-   기존 토큰 이름은 유지하고 값만 바꿨다: orange=행동색(브랜드 블루), orange-light=브랜드 옐로. */
+/* 스킨: 도도(DoD0, 도원욱 홈페이지) — 색·폰트·간격·질감만 차용(구조·배치·모션은 그대로).
+   토큰 이름은 유지하고 값만 바꿨다: orange=행동색(블랙), orange-light·yellow=애시드 라임. 파스텔 토큰은 종이·회색 블록으로. */
 :root {
-  --canvas: #ffffff;
-  --lifted: #fafbfc;
-  --ink: #1c1c1e;
-  --charcoal: #2c2c34;
-  --orange: #4262ff;
-  --orange-light: #ffd02f;
-  --clay: #2a41b6;
-  --slate: #555a6a;
-  --dust: #e0e2e8;
-  --ghost: #eef0f3;
-  /* 스티키 노트 파스텔 */
-  --yellow: #ffd02f;
-  --yellow-deep: #fcb900;
-  --yellow-soft: #fff4c4;
-  --coral: #ffc6c6;
-  --rose: #fde0f0;
-  --teal: #c3faf5;
-  --peach: #ffe6cd;
-  --lavender: #f5f3ff;
-  --hairline-strong: #c7cad5;
+  --canvas: #f1f0eb;
+  --lifted: #e9e8e2;
+  --ink: #090909;
+  --charcoal: #4e4e49;
+  --orange: #090909;
+  --orange-light: #d9ff3f;
+  --clay: #141414;
+  --slate: #74746e;
+  --dust: rgba(10, 10, 10, 0.18);
+  --ghost: #e2e1db;
+  --yellow: #d9ff3f;
+  --yellow-deep: #c6ec1f;
+  --yellow-soft: #ecffa8;
+  --coral: #d9ff3f;
+  --rose: #ffffff;
+  --teal: #e2e1db;
+  --peach: #e9e8e2;
+  --lavender: #ffffff;
+  --hairline-strong: #090909;
 }
 
 @theme inline {
@@ -43,8 +42,8 @@
   --color-teal: var(--teal);
   --color-peach: var(--peach);
   --color-lavender: var(--lavender);
-  --font-sans: "Pretendard Variable", Pretendard, var(--font-figtree), "Noto Sans KR", -apple-system, sans-serif;
-  --font-display: var(--font-figtree), "Pretendard Variable", Pretendard, sans-serif;
+  --font-sans: "Noto Sans KR", -apple-system, "Apple SD Gothic Neo", sans-serif;
+  --font-display: "Archivo Black", "Noto Sans KR", sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -57,46 +56,46 @@ body {
   overflow-wrap: anywhere;
   -webkit-font-smoothing: antialiased;
 }
-::selection { background: var(--yellow); color: var(--ink); }
-:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; border-radius: 8px; }
+::selection { background: var(--yellow); color: #000; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 
 @layer components {
 /* 제목: 촘촘한 자간(-2~-3%), 굵기 600 */
-.h-display { font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; }
-.h-section { font-weight: 500; letter-spacing: -0.015em; line-height: 1.2; }
+.h-display { font-family: var(--font-display); font-weight: 900; letter-spacing: -0.065em; line-height: 1.02; }
+.h-section { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.05em; line-height: 1.08; }
 
 /* 형광펜 강조(스티키 노트 질감) */
-.hl { background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 92%, transparent 92%); padding: 0 .06em; }
+.hl { background: var(--yellow); color: #000; padding: 0 .08em; }
 
 /* eyebrow: 오렌지 점 + 대문자 트래킹. 대문자는 여기서만 */
 .eyebrow {
   display: inline-flex; align-items: center; gap: .55rem;
-  font-family: var(--font-display); font-size: 12px; font-weight: 600;
-  letter-spacing: .06em; text-transform: uppercase;
+  font-family: var(--font-sans); font-size: 11px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
 }
-.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--yellow); box-shadow: inset 0 0 0 1px rgba(5,0,56,.08); }
+.eyebrow::before { content: ""; width: 42px; height: 8px; background: var(--yellow); box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
 
 /* 알약 버튼 */
-.pill { display: inline-flex; align-items: center; gap: .55rem; border-radius: 9999px; padding: .8rem 1.5rem; font-size: 15px; font-weight: 500; letter-spacing: 0; transition: transform .35s cubic-bezier(.2,.8,.2,1), background .3s, color .3s; }
+.pill { display: inline-flex; align-items: center; gap: .6rem; border-radius: 0; padding: .95rem 1.5rem; font-size: 14px; font-weight: 800; letter-spacing: 0; transition: transform .35s cubic-bezier(.2,.8,.2,1), background .3s, color .3s; }
 .pill:hover { transform: translateY(-2px); }
 .pill:active { transform: scale(.97); }
 .pill-ink { background: var(--ink); color: #fff; }
-.pill-ink:hover { background: var(--charcoal); }
-.pill-line { border: 1px solid var(--hairline-strong); }
+.pill-ink:hover { background: var(--yellow); color: #000; }
+.pill-line { border: 1px solid currentColor; }
+.pill-line:hover { background: var(--yellow); color: #000; border-color: #000; }
 .pill-white { background: #fff; color: var(--ink); }
 .pill-orange { background: var(--orange); color: #fff; }
-.pill-orange:hover { background: var(--clay); }
+.pill-orange:hover { background: var(--yellow); color: #000; }
 
 /* 위성 버튼(원형 미니 CTA) */
 .satellite { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 999px; background: #fff; color: var(--ink); transition: transform .4s cubic-bezier(.2,.8,.2,1), background .3s, color .3s; }
 .group:hover .satellite, .satellite:hover { transform: rotate(-45deg); background: var(--yellow); color: var(--ink); }
 
-/* 질감: 화이트보드 점 격자 (원래 SOUL의 is-noise 섹션 자리) */
+/* 질감: 도도의 노이즈 필름 */
 .grain { position: relative; isolation: isolate; }
 .grain::after {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background-image: radial-gradient(circle, rgba(5,0,56,.13) 1.1px, transparent 1.3px);
-  background-size: 22px 22px;
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .5; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
 }
 }
 
@@ -113,8 +112,8 @@ body {
 /* 게시글 본문 */
 .prose-post { font-size: 17px; line-height: 1.8; color: var(--charcoal); }
 .prose-post p { margin: 0 0 1em; }
-.prose-post img { display: block; width: 100%; height: auto; border-radius: 16px; margin: 0 0 14px; background: var(--ghost); }
-.prose-post a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+.prose-post img { display: block; width: 100%; height: auto; border-radius: 0; margin: 0 0 14px; background: var(--ghost); }
+.prose-post a { color: var(--ink); background: linear-gradient(transparent 76%, var(--yellow) 0); text-decoration: underline; text-underline-offset: 3px; }
 .prose-post table { width: 100%; border-collapse: collapse; margin: 1em 0; font-size: 15px; }
 .prose-post td, .prose-post th { border: 1px solid var(--dust); padding: .5em .7em; }
 
@@ -126,3 +125,13 @@ body {
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 /* GSAP 실행 전 깜빡임 방지: JS가 켜진 경우에만 숨김 */
 .js [data-reveal] { opacity: 0; }
+
+/* 도도 질감: 화면 전체 옅은 노이즈 필름 */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 70; pointer-events: none; opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* 밝은 바탕의 링크 hover는 글자색 대신 애시드 형광펜으로 */
+a[class*="hover:text-orange"]:hover { background: linear-gradient(transparent 70%, var(--yellow) 0); }
+/* 애시드 바탕 위의 eyebrow 막대는 검정으로 */
+.bg-yellow .eyebrow::before, .bg-orange-light .eyebrow::before, .bg-coral .eyebrow::before { background: var(--ink); }

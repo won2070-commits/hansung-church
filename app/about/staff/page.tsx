@@ -14,10 +14,10 @@ function Card({ m, big }: { m: Person; big?: boolean }) {
         <img src={asset(m.photo)} alt={m.name} loading="lazy" className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
       </div>
       <div className="mt-5 text-center">
-        <p className={`font-medium tracking-[-0.03em] ${big ? "text-2xl" : "text-lg"}`}>{m.name}</p>
+        <p className={`font-bold tracking-[-0.03em] ${big ? "text-2xl" : "text-lg"}`}>{m.name}</p>
         <p className="mt-1 text-sm text-slate">{m.role}</p>
         {m.email && <a href={`mailto:${m.email}`} className="mt-1 block truncate text-[13px] text-slate/80 hover:text-orange" style={{ fontFamily: "var(--font-display)" }}>{m.email}</a>}
-        {b && <Link href={`${href(b)}?q=${encodeURIComponent(plain)}`} className="mt-3 inline-flex rounded-full border border-ink/15 px-3.5 py-1.5 text-[13px] font-medium hover:border-orange hover:text-orange">설교 영상</Link>}
+        {b && <Link href={`${href(b)}?q=${encodeURIComponent(plain)}`} className="mt-3 inline-flex rounded-full border border-ink/15 px-3.5 py-1.5 text-[13px] font-bold hover:border-orange hover:text-orange">설교 영상</Link>}
       </div>
     </li>
   );

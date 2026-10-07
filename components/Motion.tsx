@@ -35,7 +35,7 @@ export default function Motion() {
         gsap.fromTo(el.querySelectorAll("span"), { opacity: 0.12 }, { opacity: 1, stagger: 0.08, ease: "none", scrollTrigger: { trigger: el, start: "top 80%", end: "bottom 45%", scrub: true } });
       });
       gsap.utils.toArray<HTMLElement>("[data-scale]").forEach((el) => {
-        gsap.fromTo(el, { scale: 0.86, borderRadius: "48px" }, { scale: 1, borderRadius: "32px", ease: "none", scrollTrigger: { trigger: el, start: "top 95%", end: "top 35%", scrub: true } });
+        gsap.fromTo(el, { scale: 0.86, borderRadius: "0px" }, { scale: 1, borderRadius: "0px", ease: "none", scrollTrigger: { trigger: el, start: "top 95%", end: "top 35%", scrub: true } });
         gsap.to(el, { opacity: 0.35, ease: "none", scrollTrigger: { trigger: el, start: "bottom 40%", end: "bottom top", scrub: true } });
       });
       gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {

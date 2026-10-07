@@ -23,18 +23,18 @@ export default function Page() {
         </div>
       </PageHero>
       <Wrap className="pb-24">
-        <div className="relative aspect-[21/9] overflow-hidden rounded-[32px] bg-ink" data-scale>
+        <div className="relative aspect-[21/9] overflow-hidden rounded-none bg-ink" data-scale>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={asset("assets/home/hero-festival.webp")} alt="행복한 사람들의 축제 현장" className="h-full w-full object-cover" />
         </div>
-        <div className="mx-auto mt-24 max-w-4xl space-y-6 text-[clamp(1.3rem,2.2vw,1.9rem)] font-medium leading-[1.6] tracking-[-0.025em]">
+        <div className="mx-auto mt-24 max-w-4xl space-y-6 text-[clamp(1.3rem,2.2vw,1.9rem)] font-bold leading-[1.6] tracking-[-0.025em]">
           <p data-scrub>{intro.slice(2).join(" ")}</p>
         </div>
       </Wrap>
       <Wrap className="pb-32">
         <ol className="grid gap-4 lg:grid-cols-3">
           {pillars.map((p, i) => (
-            <li key={p.n} className={`flex flex-col rounded-[32px] p-9 ${["bg-yellow", "bg-teal", "bg-rose"][i]}`} data-reveal>
+            <li key={p.n} className={`flex flex-col rounded-none p-9 ${["bg-yellow", "bg-teal", "bg-rose"][i]}`} data-reveal>
               <p className="eyebrow mb-10 opacity-80">{p.n}</p>
               <h2 className="h-section mb-6 text-[clamp(1.7rem,2.6vw,2.3rem)]">{p.title}</h2>
               <div className="space-y-3 leading-relaxed opacity-85">{p.body.map((b) => <p key={b}>{b}</p>)}</div>

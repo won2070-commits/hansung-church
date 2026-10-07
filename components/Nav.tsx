@@ -29,12 +29,12 @@ export default function Nav() {
   return (
     <>
       <header className={`fixed inset-x-0 top-0 z-50 px-3 pt-3 transition-transform duration-500 sm:px-6 sm:pt-5 ${hidden && !open ? "-translate-y-[130%]" : ""}`}>
-        <nav aria-label="주요 메뉴" className="mx-auto flex h-16 max-w-[1280px] items-center justify-between rounded-full bg-white/90 pl-5 pr-2 shadow-[0_4px_12px_rgba(5,0,56,0.06)] backdrop-blur-md sm:pl-7">
+        <nav aria-label="주요 메뉴" className="mx-auto flex h-16 max-w-[1280px] items-center justify-between border border-ink bg-canvas/95 pl-5 pr-2 backdrop-blur-md sm:pl-7">
           <Link href="/" aria-label="한성교회 홈"><Logo /></Link>
           <ul className="hidden items-center gap-1 lg:flex">
             {TOP.map(([t, h]) => (
               <li key={h}>
-                <Link href={h} className={`rounded-full px-4 py-2 text-[15px] font-medium tracking-[-0.02em] transition-colors hover:bg-canvas ${path?.startsWith(h) ? "bg-canvas" : ""}`}>{t}</Link>
+                <Link href={h} className={`px-4 py-2 text-[12px] font-bold uppercase tracking-[0.14em] transition-colors hover:bg-orange-light ${path?.startsWith(h) ? "bg-orange-light" : ""}`}>{t}</Link>
               </li>
             ))}
           </ul>
@@ -57,7 +57,7 @@ export default function Nav() {
           {MENU.map((g, gi) => (
             <div key={g.title} className="animate-[fadeUp_.6s_both]" style={{ animationDelay: `${gi * 70}ms` }}>
               <p className="eyebrow mb-5 text-canvas/50">{g.en}</p>
-              <p className="mb-6 text-4xl font-medium tracking-[-0.04em] sm:text-5xl">{g.title}</p>
+              <p className="mb-6 text-4xl font-bold tracking-[-0.04em] sm:text-5xl">{g.title}</p>
               <ul className="space-y-1">
                 {g.items.map(([t, h]) => (
                   <li key={h}>

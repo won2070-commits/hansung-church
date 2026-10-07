@@ -16,14 +16,14 @@ export default function Page() {
         <a href={l.youtube} target="_blank" rel="noopener" className="pill pill-orange !px-7 !py-4 text-lg"><span className="h-2.5 w-2.5 animate-pulse rounded-full bg-white" />유튜브 생방송 보기 <ArrowUpRight /></a>
       </PageHero>
       <Wrap className="grid gap-12 pb-32 lg:grid-cols-[1.2fr_0.8fr]">
-        <a href={l.youtube} target="_blank" rel="noopener" className="group relative block aspect-video overflow-hidden rounded-[32px] bg-ink" data-reveal>
+        <a href={l.youtube} target="_blank" rel="noopener" className="group relative block aspect-video overflow-hidden rounded-none bg-ink" data-reveal>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={ytThumb(recent.youtube[0], "maxres")} alt="" className="h-full w-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-105" />
           <span className="absolute inset-0 grid place-items-center"><span className="grid h-24 w-24 place-items-center rounded-full bg-yellow text-ink transition-transform group-hover:scale-110"><Play size={34} /></span></span>
-          <span className="absolute left-6 top-6 rounded-full bg-white px-4 py-1.5 text-sm font-medium">한성교회 YouTube</span>
+          <span className="absolute left-6 top-6 rounded-full bg-white px-4 py-1.5 text-sm font-bold">한성교회 YouTube</span>
         </a>
         <ul className="space-y-4">
-          {notes.slice(1).map((n) => <li key={n} className="rounded-[16px] border border-dust bg-white p-6 leading-relaxed" data-reveal>{n}</li>)}
+          {notes.slice(1).map((n) => <li key={n} className="rounded-none border border-dust bg-white p-6 leading-relaxed" data-reveal>{n}</li>)}
           <li data-reveal><Link href="/tv/" className="pill pill-ink">지난 예배 다시보기 <ArrowUpRight /></Link></li>
         </ul>
       </Wrap>

@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="flex flex-col justify-between gap-10 border-b border-white/15 pb-16 lg:flex-row lg:items-end">
           <p className="h-display max-w-4xl text-[clamp(2.4rem,5.5vw,5rem)]">언제든, 여기서<br />당신을 기다릴게요.</p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/newcomer/" className="pill bg-white text-ink hover:bg-yellow">새가족 등록 <ArrowUpRight /></Link>
+            <Link href="/newcomer/" className="pill bg-orange-light text-ink hover:bg-white">새가족 등록 <ArrowUpRight /></Link>
             <a href={`tel:${c.tel}`} className="pill pill-line">{c.tel}</a>
           </div>
         </div>

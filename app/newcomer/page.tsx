@@ -18,23 +18,23 @@ export default function Page() {
       <Wrap className="pb-24">
         <ol className="grid gap-4 md:grid-cols-2">
           {steps.map(([k, v], i) => (
-            <li key={k} className={`rounded-[32px] p-10 sm:p-14 ${i ? "bg-yellow" : "bg-teal"}`} data-reveal>
-              <p className="text-[clamp(4rem,8vw,7rem)] font-medium leading-none tracking-[-0.05em] text-ink" style={{ fontFamily: "var(--font-display)" }}>0{i + 1}</p>
+            <li key={k} className={`rounded-none p-10 sm:p-14 ${i ? "bg-yellow" : "bg-teal"}`} data-reveal>
+              <p className="text-[clamp(4rem,8vw,7rem)] font-bold leading-none tracking-[-0.05em] text-ink" style={{ fontFamily: "var(--font-display)" }}>0{i + 1}</p>
               <p className="eyebrow mt-8">{k}</p>
-              <p className="mt-4 text-2xl font-medium leading-snug tracking-[-0.03em]">{v}</p>
+              <p className="mt-4 text-2xl font-bold leading-snug tracking-[-0.03em]">{v}</p>
             </li>
           ))}
         </ol>
         <p className="mt-8 text-center text-slate" data-reveal>{n.lines[5].replace(/^\*/, "")}</p>
       </Wrap>
       <Wrap className="pb-32">
-        <div className="grid items-center gap-10 rounded-[32px] bg-ink p-8 text-white sm:p-14 lg:grid-cols-2" data-reveal>
+        <div className="grid items-center gap-10 rounded-none border-2 border-ink bg-orange-light p-8 text-ink sm:p-14 lg:grid-cols-2" data-reveal>
           <div>
             <h2 className="h-display text-[clamp(2.2rem,4.4vw,4rem)]">이번 주일,<br />기다리고 있을게요.</h2>
-            <p className="mt-6 text-white/85">주일예배 오전 8:00 · 10:00 · 정오 12:00 · 오후 2:00 · 3:40(젊은이예배) · 저녁 8:00<br />워십센터 2층 H-홀</p>
+            <p className="mt-6 text-ink/75">주일예배 오전 8:00 · 10:00 · 정오 12:00 · 오후 2:00 · 3:40(젊은이예배) · 저녁 8:00<br />워십센터 2층 H-홀</p>
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
-            <a href={n.form} target="_blank" rel="noopener" className="pill bg-white text-ink hover:bg-yellow">등록 설문지 작성 <ArrowUpRight /></a>
+            <a href={n.form} target="_blank" rel="noopener" className="pill pill-ink">등록 설문지 작성 <ArrowUpRight /></a>
             <Link href="/location/" className="pill pill-line">오시는 길</Link>
           </div>
         </div>

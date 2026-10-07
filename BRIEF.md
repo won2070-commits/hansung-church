@@ -21,18 +21,17 @@
 |---|---|---|
 | 레퍼런스 1 | SOUL Church (Awwwards Honorable Mention, Webflow) | 섹션 순서·글자 크기·분위기: 풀블리드 히어로 + 떠 있는 "소식" 카드, 대형 환영 문구, 미션 마퀴, 노이즈 질감 예배 섹션, 가치 마퀴, 하단 고정 예배시간 바 |
 | 레퍼런스 2 | Passion City Church | 미디어·리더십 배치: 스타디움 라운드 히어로, 담임목사 소개, 설교 목록 |
-| 스킨(getdesign) | **Miro DESIGN.md** (2026-10-07 교체, 이전: Mastercard) | 색·폰트·간격·질감만: 흰 캔버스, 검정 알약 CTA, 캐너리 옐로(로고·강조), 브랜드 블루(행동·링크), 스티키노트 파스텔 카드, 화이트보드 점 격자 |
+| 스킨 | **도도(DoD0, 도원욱 홈페이지 won2070-commits.github.io/dowonuk)** (2026-10-08 교체, 이전: Miro ← Mastercard) | 색·폰트·간격·질감만: 종이 #f1f0eb, 블랙 #090909, 애시드 라임 #d9ff3f, 각진 모서리·검은 테두리, 노이즈 필름, 애시드 띠·형광펜, 흑백 히어로 사진 |
 
 Webflow 템플릿·Awwwards에서 수집. Savee·Pinterest는 로그인/보안문자 때문에 제외.
 
-## 5. 디자인 토큰 (Miro)
+## 5. 디자인 토큰 (도도 / DoD0)
 - 스킨 교체 원칙: **구조·섹션 순서·레이아웃·애니메이션·인터랙션은 절대 바꾸지 않고, 색상·폰트·간격·질감만 바꾼다.**
-- 색: canvas `#ffffff` · surface `#fafbfc` · ink `#1c1c1e` · charcoal `#2c2c34` · slate `#555a6a` · hairline `#e0e2e8` · blue `#4262ff`(CSS 토큰명 `orange`) · yellow `#ffd02f`(토큰명 `orange-light`) · 파스텔 yellow/coral `#ffc6c6`/rose `#fde0f0`/teal `#c3faf5`/peach `#ffe6cd`
-- 옐로는 로고·형광펜 강조(`.hl`)·작은 점에만. 큰 배경·일반 버튼 금지. 주 버튼은 검정 알약, 보조 행동은 블루 알약.
-- 글꼴: 한글 Pretendard, 라틴 Figtree(Roobert PRO 대체). 제목 500, 본문 400, 700 안 씀.
-- 모서리: 버튼 9999px · 파스텔 카드 28px · CTA 배너 32px · 미디어/목록 카드 16px · 입력창 8px. 그림자는 rgba(5,0,56,…) 낮게.
-- 간격: 최대폭 1280px, 섹션 96~128px.
-- 질감: 예배 섹션은 화이트보드 점 격자(`.grain`).
+- 색: paper `#f1f0eb`(canvas) · block `#e9e8e2`(lifted) · gray `#e2e1db` · black `#090909` · body `#4e4e49` · muted `#74746e` · line `rgba(10,10,10,.18)` · acid `#d9ff3f`. CSS 토큰 이름은 그대로 두고 값만 바꿈(orange=블랙, orange-light·yellow·coral=애시드, rose=흰색, teal·peach=회색 블록).
+- 글꼴: Google Fonts `Archivo Black`(영문 디스플레이) + `Noto Sans KR` 400~900. 제목 900·자간 -0.065em, eyebrow 11px 700 대문자 0.18em + 애시드 막대(42×8).
+- 모양: 카드·버튼·미디어 모두 각진 모서리(0), 검은 1~2px 테두리. 원형은 담임목사 초상·재생/화살표 버튼만.
+- 질감: 화면 전체 노이즈 필름(3.5%), 비전 마퀴는 애시드 띠, 강조 단어는 애시드 블록(`.hl`), 히어로 사진 흑백+대비.
+- hover: 버튼은 애시드 바탕+검정 글자, 밝은 바탕 링크는 애시드 형광펜 밑줄.
 
 ## 6. 하지 말 것
 - "SECTION 01" 같은 메타 라벨, 이모지, 의미 없는 장식 배지.
@@ -55,10 +54,9 @@ Webflow 템플릿·Awwwards에서 수집. Savee·Pinterest는 로그인/보안�
 | 5. 섹션 확장 | 특징(예배) → 후기(은혜나눔 흐르는 카드) → 포트폴리오(LIFE 벤토) → 프로세스(처음 오신 분의 네 걸음, 쌓이는 카드) | 완료 |
 
 **폰트 로딩 경로**
-- 한글: Pretendard Variable — `https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css` (본문 400, 제목 500)
-- 라틴: Figtree — Google Fonts, `next/font/google`의 `Figtree({ weight: ["400","500","600"] })` (변수 `--font-figtree`)
+- `https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap` (layout.tsx `<link>`)
 
-**정확한 HEX**: ink `#1c1c1e` · canvas `#ffffff` · surface `#fafbfc` · hairline `#e0e2e8` · blue `#4262ff` · yellow `#ffd02f` · coral `#ffc6c6` · rose `#fde0f0` · teal `#c3faf5` · peach `#ffe6cd`
+**정확한 HEX (도도)**: black `#090909` · paper `#f1f0eb` · block `#e9e8e2` · gray `#e2e1db` · body `#4e4e49` · muted `#74746e` · acid `#d9ff3f`
 
 **프롬프트 1 — Higgsfield (gpt_image_2_5, 16:9)**
 > 주니어 디자이너에게 지시하듯: 첫 번째 이미지(한성교회 H-홀 예배 사진)의 구도와 무대 배치는 그대로 유지해. 무대 위 조명 빔만 두 번째 이미지 같은 부드러운 추상 원형 링(겹쳐 도는 고리)으로 바꿔. 전체 색감은 세 번째 팔레트(#ffffff, #ffd02f, #4262ff, 파스텔)로 맞춰. 글자·로고·버튼은 절대 넣지 말 것. 8K 수준 디테일.

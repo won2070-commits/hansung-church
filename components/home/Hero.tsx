@@ -19,16 +19,16 @@ export default function Hero({ slides, news }: { slides: string[]; news: News[] 
 
   return (
     <section className="px-3 pt-3 sm:px-6 sm:pt-5" aria-label="한성교회에 오신 것을 환영합니다">
-      <div className="relative mx-auto h-[calc(100svh-24px)] min-h-[640px] max-w-[1440px] overflow-hidden rounded-[16px] bg-ink sm:h-[calc(100svh-40px)] sm:rounded-[32px]">
+      <div className="relative mx-auto h-[calc(100svh-24px)] min-h-[640px] max-w-[1440px] overflow-hidden rounded-none bg-ink sm:h-[calc(100svh-40px)] ">
         {slides.map((src, i) => (
           <div key={src} className={`absolute inset-0 transition-opacity duration-[1600ms] ${i === s ? "opacity-100" : "opacity-0"}`} aria-hidden="true">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt="" className={`h-full w-full object-cover ${i === s ? "kenburns" : ""}`} fetchPriority={i === 0 ? "high" : "low"} />
+            <img src={src} alt="" className={`h-full w-full object-cover grayscale contrast-[1.08] ${i === s ? "kenburns" : ""}`} fetchPriority={i === 0 ? "high" : "low"} />
           </div>
         ))}
         <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_20%_100%,rgba(28,28,30,.85),rgba(28,28,30,.25)_55%,rgba(28,28,30,.1))]" />
 
-        <div className="relative flex h-full flex-col justify-end px-5 pb-[300px] pt-28 sm:px-12 sm:pb-[270px] lg:pb-[320px]">
+        <div className="relative flex h-full flex-col justify-end px-5 pb-[320px] pt-28 sm:px-12 sm:pb-[340px] lg:pb-[340px]">
           <p className="eyebrow mb-6 text-canvas/80 animate-[fadeUp_1s_.2s_both]">Hansung Church · Seoul</p>
           <h1 className="h-display max-w-6xl text-[clamp(2.7rem,7.2vw,7.4rem)] text-canvas animate-[fadeUp_1.1s_.35s_both]">
             행복한 사람이<br />행복한 세상을 <span className="text-orange-light">만듭니다.</span>
@@ -37,9 +37,9 @@ export default function Hero({ slides, news }: { slides: string[]; news: News[] 
 
         {cur && (
           <div className="absolute inset-x-3 bottom-[68px] sm:inset-x-6 sm:bottom-6 lg:left-auto lg:right-8 lg:bottom-8 lg:w-[620px] animate-[fadeUp_1s_.7s_both]">
-            <div className="flex items-stretch gap-4 rounded-[16px] bg-white/95 p-3 shadow-[0_12px_32px_-4px_rgba(5,0,56,0.08)] backdrop-blur sm:p-4">
+            <div className="flex items-stretch gap-4 rounded-none border border-ink bg-canvas p-3 sm:p-4">
               {cur.cover && (
-                <Link href={cur.href} className="hidden w-36 shrink-0 overflow-hidden rounded-[12px] sm:block" tabIndex={-1} aria-hidden="true">
+                <Link href={cur.href} className="hidden w-36 shrink-0 overflow-hidden rounded-none sm:block" tabIndex={-1} aria-hidden="true">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={cur.cover} alt="" className="h-full w-full object-cover" />
                 </Link>
@@ -54,7 +54,7 @@ export default function Hero({ slides, news }: { slides: string[]; news: News[] 
                     ))}
                   </div>
                 </div>
-                <Link href={cur.href} className="line-clamp-2 text-[19px] font-medium leading-snug tracking-[-0.03em] hover:text-orange sm:text-[22px]" aria-live="polite">{cur.title}</Link>
+                <Link href={cur.href} className="line-clamp-2 text-[19px] font-bold leading-snug tracking-[-0.03em] hover:text-orange sm:text-[22px]" aria-live="polite">{cur.title}</Link>
                 <div className="flex items-center justify-between">
                   <span className="text-[13px] text-slate tabular-nums" style={{ fontFamily: "var(--font-display)" }}>{cur.date}</span>
                   <div className="flex items-center gap-2">
