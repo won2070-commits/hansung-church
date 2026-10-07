@@ -1,37 +1,31 @@
-# 한성교회 홈페이지 리디자인
+# 한성교회 홈페이지 (전면 개편판)
 
-GPT 코워크(Codex)에서 기획 → 디자인 제작 → 색상·실제 사진·움직임 보완 3단계로 만든 반응형 시안을 2026-10-07 이 폴더(`Cowork/한성교회홈페이지`)로 이관해 이어서 작업한다. 별도 패키지 설치 없이 HTML/CSS/JavaScript로 실행된다. 원본 폴더: `~/Documents/ChatGPT/한성교회 홈 페이지`.
+공식 홈페이지 https://www.hansungchurch.com 의 자료를 옮겨 새 디자인으로 다시 만든 Next.js 정적 사이트.
+기획·레퍼런스·디자인 규칙은 [BRIEF.md](BRIEF.md)에 있다.
 
-## 실행
+- 배포 주소(시안): https://won2070-commits.github.io/hansung-church/
+- `main`에 push하면 GitHub Actions가 빌드해 자동 배포한다(`.github/workflows/deploy.yml`).
 
-- 미리보기: `node server.cjs` → http://localhost:5225 (`.claude/launch.json` 프리뷰명 "한성교회홈페이지")
-- 정적 호스팅: index.html, pastor.html, style.css, app.js, assets/ 를 그대로 업로드
+## 명령
 
-## 구성과 기능
+| 할 일 | 명령 |
+|---|---|
+| 미리보기 | `npm run dev` → http://localhost:5225 |
+| 공식 사이트에서 자료 다시 가져오기 | `npm run scrape` (게시판 수집 → 안내 페이지 추출 → 사진 WebP 축소) |
+| GitHub Pages용 빌드 | `npm run build:pages` → `out/` |
+| 공식 도메인용 빌드 | `npm run build` → `out/` 폴더를 웹서버 루트에 올린다 |
 
-- 처음 방문하는 사람: 교회 소개 → 목회자와 설교 → 예배와 방문 안내
-- 기존 성도: 예배 시간표, 온라인 예배, 주보, 소식, 찬양, 헌금 안내
-- YouTube 설교 재생 대화상자 및 YouTube 직접 보기
-- 최근 설교 3편(`app.js`의 `sermons`) 검색과 공식 게시물 연결
-- 주일·주중·다음 세대·청년 시간표 탭(`app.js`의 `schedules`), 방향키 이동
-- 모바일 메뉴, FAQ, 지도·전화·주소 복사
-- 스크롤 등장 효과, 움직임 줄이기 설정 존중, 키보드 초점 표시
-- 담임목사 인사말 별도 페이지 `pastor.html`
+## 구조
 
-## 자료와 출처 (2026-10-07 확인)
+- `app/` 페이지: 홈, `about`(인사말·섬기는이들), `worship`, `giving`, `location`, `newcomer`, `live`, `happy`(행축ON), `tv/[게시판]/[글]`, `life/[게시판]/[글]`
+- `data/*.json` 수집 자료(게시판별 글, `site.json`은 안내 페이지)
+- `public/media/` 게시물 사진·첨부(WebP 축소본). 원본은 `../한성교회홈페이지_원본미디어/`
+- `tools/` 수집기(`scrape.py`, `extract_static.py`, `shrink.py`)
+- `_v1/` 1차 시안(GPT 코워크 작업분) 보관
 
-- 교회: https://www.hansungchurch.com/html/main.asp
-- 목회자: https://www.hansungchurch.com/html/sub01/01.asp
-- 예배: https://www.hansungchurch.com/html/sub01/03.asp
-- 설교: https://www.hansungchurch.com/EZ/rb/board.asp?BoardModule=Media&tbcode=worship01_1
-- 사진: 담임목사 사진(사용자 제공) + 공식 홈페이지 공동체·설교 이미지
+## 옮긴 범위 (2026-10-07 수집)
 
-## 갱신 방법
-
-- 설교가 바뀌면 `index.html`의 대표 설교(제목·본문·날짜·`data-video` YouTube ID·`assets/hansung-sermon-*.jpg`)와 `app.js`의 `sermons` 배열(공식 게시판 seq)을 손으로 바꾼다. 자동 갱신 없음.
-- 예배 시간은 `app.js`의 `schedules`.
-- 로고는 임시 워드마크(`.brand-mark`). 공식 로고로 교체 가능.
-
-## 운영 범위
-
-로컬 시안이며 교회 공식 서버·도메인에는 배포하지 않았다. 주보·소식·등록 등은 공식 홈페이지 링크로 연결한다. `official-site-replacement/`는 공식 사이트 담임목사 사진 교체용 산출물(미업로드).
+- 안내 페이지 전부: 담임목사 인사말, 섬기는이들(교역자·청지기 사진 포함), 예배안내, 온라인헌금, 오시는길, 새가족 등록, 예배생방송, 행축ON
+- 게시판 18개의 2025-01-01 이후 글 전부(멈춘 게시판은 최근 20건): 설교·찬양 영상, 공지, 사진, 주보, 하키TOPIC, 가정예배, 특새, 갤러리H
+- 그 이전 글은 각 글 하단 "공식 게시판 원문" 링크와 공식 사이트에 남아 있다.
+- 로그인·회원가입·성경필사 같은 서버 기능은 옮기지 않았다(정적 사이트).

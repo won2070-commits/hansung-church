@@ -1,0 +1,872 @@
+{
+ "checked": "2026-10-07",
+ "greeting": {
+  "credentials": [
+   "총신대학교 목회신학전문대학원 신학 박사(설교학)",
+   "총신대학교 목회신학전문대학원 겸임교수 역임",
+   "전, 경산중앙교회 담임",
+   "현, 한성교회 담임"
+  ],
+  "headline": "행복한 사람이 행복한 세상을 만듭니다.",
+  "paragraphs": [
+   "이 세상에서 가장 행복한 사람은 누구일까요?",
+   "예수 그리스도를 만나 새로운 인생, 멋진 인생을 시작하는 사람입니다.",
+   "저는 청년시절에 아버지께서 병환으로 돌아가시고, 가족과 삶에 대해 무한 책임이라는 중량감에 눌려 둥지 잃은 새처럼 방황하면서 제 꿈과 행복은 흩어져 버렸습니다.",
+   "그때, 하나님께 부르짖으며 기도하게 되었고 칠흑 같은 제 인생의 어둠을 몰아내시고 삶을 포기하지 않게 하시는 예수 그리스도를 만나면서 행복한 꿈은 다시 시작되었습니다.",
+   "예수님을 만남으로 행복하고,",
+   "예수님을 누림으로 행복은 깊어지고,",
+   "예수님을 전함으로 더 큰 행복을 만드는 새 사람이 되었습니다.",
+   "한성교회는 ‘행복한 사람들의 축제’가 펼쳐집니다.",
+   "예수 그리스도 안에서 더 큰 행복을 맛보시고 더 멋진 삶이 되십시오.",
+   "언제나 화사한 봄날 같은 새 인생이 되시기를 축복합니다."
+  ]
+ },
+ "pastors": [
+  {
+   "group": "원로목사/담임목사",
+   "members": [
+    {
+     "name": "박승준 원로목사",
+     "role": "원로목사",
+     "email": "evschool@naver.com",
+     "photo": "media/static/man/psj.webp",
+     "sermons": null
+    },
+    {
+     "name": "도원욱 담임목사",
+     "role": "담임목사",
+     "email": "won2070@hotmail.com",
+     "photo": "media/static/man/dww_251229.webp",
+     "sermons": null
+    }
+   ]
+  },
+  {
+   "group": "부목사",
+   "members": [
+    {
+     "name": "장동휘 목사",
+     "role": "총괄, 4교구",
+     "email": "jjang0403@gmail.com",
+     "photo": "media/static/man/jdh.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "53"
+     }
+    },
+    {
+     "name": "민상덕 목사",
+     "role": "수석, 목양A팀장, 10교구",
+     "email": "msd813@hanmail.net",
+     "photo": "media/static/man/msd.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "43"
+     }
+    },
+    {
+     "name": "오훈열 목사",
+     "role": "행정",
+     "email": "dhgnsduf@naver.com",
+     "photo": "media/static/man/ohy.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "38"
+     }
+    },
+    {
+     "name": "노신일 목사",
+     "role": "홀리킥 사랑부, 소망대학",
+     "email": "zzang6863@naver.com",
+     "photo": "media/static/man/nsi.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "10"
+     }
+    },
+    {
+     "name": "나요셉 목사",
+     "role": "청년부 팀장",
+     "email": "rayo072@naver.com",
+     "photo": "media/static/man/nys.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "12"
+     }
+    },
+    {
+     "name": "염동휘 목사",
+     "role": "영어예배부",
+     "email": "pastor.mike.hansung@gmail.com",
+     "photo": "media/static/man/ydh.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "41"
+     }
+    },
+    {
+     "name": "전영호 목사",
+     "role": "1교구, 예배부(정)",
+     "email": "wjsdudgh21@nate.com",
+     "photo": "media/static/man/jyh.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "48"
+     }
+    },
+    {
+     "name": "서의영 목사",
+     "role": "차세대 팀장, 고등부, 패밀리미니스트리",
+     "email": "euiyoung31@gmail.com",
+     "photo": "media/static/man/suy.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "46"
+     }
+    },
+    {
+     "name": "유희준 목사",
+     "role": "목양B팀장, 5교구, 경조부",
+     "email": "930heejun@gmail.com",
+     "photo": "media/static/man/yhj.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "50"
+     }
+    },
+    {
+     "name": "김명준 목사",
+     "role": "청년부",
+     "email": "jun607@naver.com",
+     "photo": "media/static/man/kmj.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "26"
+     }
+    },
+    {
+     "name": "최성일 목사",
+     "role": "2교구, 행사부",
+     "email": "seongil1986@gmail.com",
+     "photo": "media/static/man/csi.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "61"
+     }
+    },
+    {
+     "name": "엄총명 목사",
+     "role": "청년부, 예배부(부)",
+     "email": "eomchong@icloud.com",
+     "photo": "media/static/man/ecm.webp",
+     "sermons": {
+      "board": "worship01_5",
+      "code": "11"
+     }
+    },
+    {
+     "name": "최양지 목사",
+     "role": "6교구, 멀티부(정)",
+     "email": "choi443@naver.com",
+     "photo": "media/static/man/cyj.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "55"
+     }
+    },
+    {
+     "name": "김다솔 목사",
+     "role": "유년부, 예배부(부)",
+     "email": "everysol91@gmail.com",
+     "photo": "media/static/man/kds.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "52"
+     }
+    },
+    {
+     "name": "윤호영 목사",
+     "role": "3교구, 교회음악부",
+     "email": "skdi8291@naver.com",
+     "photo": "media/static/man/yhy.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "56"
+     }
+    },
+    {
+     "name": "김동휘 목사",
+     "role": "9교구, 차량부",
+     "email": "gracehui0228@naver.com",
+     "photo": "media/static/man/kdh.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "57"
+     }
+    },
+    {
+     "name": "권순일 목사",
+     "role": "전도부, 선교부, 화요전도예배",
+     "email": "gattusso@naver.com",
+     "photo": "media/static/man/ksi.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "58"
+     }
+    },
+    {
+     "name": "이지영 목사",
+     "role": "청년부",
+     "email": "revlee0956@gmail.com",
+     "photo": "media/static/man/ljy.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "59"
+     }
+    },
+    {
+     "name": "도준호 목사",
+     "role": "유치부",
+     "email": "ehwnsgh12@naver.com",
+     "photo": "media/static/man/djh.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "60"
+     }
+    },
+    {
+     "name": "이석훤 목사",
+     "role": "청년부, 멀티부(부)",
+     "email": "hwoneeeeee@gmail.com",
+     "photo": "media/static/man/lsh.webp",
+     "sermons": null
+    },
+    {
+     "name": "조경민 목사",
+     "role": "청년부, 찬양",
+     "email": "kmc7758@naver.com",
+     "photo": "media/static/man/jkm.webp",
+     "sermons": null
+    },
+    {
+     "name": "강요한 목사",
+     "role": "7교구",
+     "email": "teddytigers2@naver.com",
+     "photo": "media/static/man/kyh.webp",
+     "sermons": null
+    },
+    {
+     "name": "신명기 목사",
+     "role": "청년부, 행정(부)",
+     "email": "smk941129@gmail.com",
+     "photo": "media/static/man/smk.webp",
+     "sermons": null
+    },
+    {
+     "name": "이도현 목사",
+     "role": "초등부, 전도부(부)",
+     "email": "ehgus6127@naver.com",
+     "photo": "media/static/man/ldh.webp",
+     "sermons": null
+    }
+   ]
+  },
+  {
+   "group": "전임 강도사",
+   "members": [
+    {
+     "name": "정승환 강도사",
+     "role": "찬양, 8교구",
+     "email": "",
+     "photo": "media/static/man/jsh_260720.webp",
+     "sermons": null
+    }
+   ]
+  },
+  {
+   "group": "전임 전도사",
+   "members": [
+    {
+     "name": "조영숙 전도사",
+     "role": "새가족부, 양육훈련부(정), 중보기도부",
+     "email": "cho9685@hanmail.net",
+     "photo": "media/static/man/jys.webp",
+     "sermons": null
+    },
+    {
+     "name": "유지혜 전도사",
+     "role": "기획, 행축 연구소",
+     "email": "with0426@nate.com",
+     "photo": "media/static/man/yjh.webp",
+     "sermons": {
+      "board": "worship01_3",
+      "code": "23"
+     }
+    },
+    {
+     "name": "전보름 전도사",
+     "role": "청년부",
+     "email": "jbr0196@naver.com",
+     "photo": "media/static/man/jbr.webp",
+     "sermons": null
+    },
+    {
+     "name": "이문명 전도사",
+     "role": "목회 비서",
+     "email": "wenming226@hanmail.net",
+     "photo": "media/static/man/lmm.webp",
+     "sermons": null
+    },
+    {
+     "name": "이춘란 전도사",
+     "role": "중국어예배부, 양육훈련부",
+     "email": "chunlanli0302@gmail.com",
+     "photo": "media/static/man/lcr.webp",
+     "sermons": null
+    }
+   ]
+  },
+  {
+   "group": "교육 전도사",
+   "members": [
+    {
+     "name": "전준희 전도사",
+     "role": "영유아부",
+     "email": "wjswns618@naver.com",
+     "photo": "media/static/man/jjh.webp",
+     "sermons": null
+    },
+    {
+     "name": "박바울 전도사",
+     "role": "청소년부(부)",
+     "email": "ppo0802@naver.com",
+     "photo": "media/static/man/pbw.webp",
+     "sermons": null
+    },
+    {
+     "name": "임정현 전도사",
+     "role": "청년부",
+     "email": "dkssud2521@naver.com",
+     "photo": "media/static/man/ljh.webp",
+     "sermons": null
+    },
+    {
+     "name": "이지수 전도사",
+     "role": "찬양",
+     "email": "",
+     "photo": "media/static/man/ljs.webp",
+     "sermons": null
+    },
+    {
+     "name": "김영현 전도사",
+     "role": "유초등부",
+     "email": "dudgustml@naver.com",
+     "photo": "media/static/man/kyh2_260720.webp",
+     "sermons": null
+    }
+   ]
+  },
+  {
+   "group": "간사",
+   "members": [
+    {
+     "name": "권진형 간사",
+     "role": "찬양",
+     "email": "",
+     "photo": "media/static/man/kjh.webp",
+     "sermons": null
+    },
+    {
+     "name": "이슬 간사",
+     "role": "청년부",
+     "email": "",
+     "photo": "media/static/man/ls.webp",
+     "sermons": null
+    },
+    {
+     "name": "박지영 간사",
+     "role": "찬양",
+     "email": "",
+     "photo": "media/static/man/pjy.webp",
+     "sermons": null
+    }
+   ]
+  }
+ ],
+ "stewards": [
+  {
+   "group": "청지기",
+   "members": [
+    {
+     "name": "김현수",
+     "role": "관리",
+     "email": "",
+     "photo": "media/static/people/khs.webp",
+     "sermons": null
+    },
+    {
+     "name": "김덕용",
+     "role": "음향",
+     "email": "",
+     "photo": "media/static/people/kdy.webp",
+     "sermons": null
+    },
+    {
+     "name": "이주형",
+     "role": "영상, 스튜디오",
+     "email": "",
+     "photo": "media/static/people/ljh.webp",
+     "sermons": null
+    },
+    {
+     "name": "이성진",
+     "role": "조명",
+     "email": "",
+     "photo": "media/static/people/lsj.webp",
+     "sermons": null
+    },
+    {
+     "name": "정지혜",
+     "role": "재정",
+     "email": "",
+     "photo": "media/static/people/jjh.webp",
+     "sermons": null
+    },
+    {
+     "name": "김은경",
+     "role": "인포",
+     "email": "",
+     "photo": "media/static/people/kek.webp",
+     "sermons": null
+    },
+    {
+     "name": "허창복",
+     "role": "경비",
+     "email": "",
+     "photo": "media/static/people/hcb.webp",
+     "sermons": null
+    },
+    {
+     "name": "나유진",
+     "role": "디자인",
+     "email": "",
+     "photo": "media/static/people/nyj.webp",
+     "sermons": null
+    },
+    {
+     "name": "손지민",
+     "role": "자막",
+     "email": "",
+     "photo": "media/static/people/sjm_251227.webp",
+     "sermons": null
+    },
+    {
+     "name": "김기동",
+     "role": "설비",
+     "email": "",
+     "photo": "media/static/people/kkd_260720.webp",
+     "sermons": null
+    }
+   ]
+  }
+ ],
+ "worship": {
+  "주일 예배": [
+   [
+    "1부 예배",
+    "주일 오전 8:00",
+    "H-홀(워십센터 2층)"
+   ],
+   [
+    "2부 예배",
+    "주일 오전 10:00",
+    "H-홀(워십센터 2층)"
+   ],
+   [
+    "3부 예배",
+    "주일 정오 12:00",
+    "H-홀(워십센터 2층)"
+   ],
+   [
+    "4부 예배",
+    "주일 오후 2:00",
+    "H-홀(워십센터 2층)"
+   ],
+   [
+    "5부 예배(젊은이예배)",
+    "주일 오후 3:40",
+    "H-홀(워십센터 2층)"
+   ],
+   [
+    "6부 예배",
+    "주일 저녁 8:00",
+    "H-홀(워십센터 2층)"
+   ],
+   [
+    "성인 영어예배",
+    "주일 정오 12:00",
+    "비전센터 5층"
+   ],
+   [
+    "중국어 예배",
+    "주일 오후 2:00",
+    "비전센터 5층"
+   ]
+  ],
+  "교회학교": [
+   [
+    "영유아부 1부(0~3세)",
+    "주일 오전 10:00",
+    "비전센터 3층"
+   ],
+   [
+    "영유아부 2부(0~3세)",
+    "주일 정오 12:00",
+    "비전센터 3층"
+   ],
+   [
+    "유치부 1부(4~6세)",
+    "주일 오전 10:00",
+    "비전센터 3층"
+   ],
+   [
+    "유치부 2부(4~6세)",
+    "주일 정오 12:00",
+    "비전센터 3층"
+   ],
+   [
+    "취학부 1부(7~12세)",
+    "주일 오전 10:00",
+    "비전센터 1층"
+   ],
+   [
+    "취학부 2부(7~12세)",
+    "주일 정오 12:00",
+    "비전센터 1층"
+   ],
+   [
+    "청소년부 1부(13~18세)",
+    "주일 오전 10:00",
+    "비전센터 2층"
+   ],
+   [
+    "청소년부 2부(13~18세)",
+    "주일 정오 12:00",
+    "비전센터 2층"
+   ],
+   [
+    "캡틴 워십",
+    "주일 오후 2:00",
+    "비전센터 1층"
+   ],
+   [
+    "eKids 영어예배(4~12세)",
+    "주일 오전 10:00",
+    "비전센터 5층"
+   ],
+   [
+    "홀리킥 사랑부 1부(6~12세)",
+    "주일 오전 10:00",
+    "비전센터 5층"
+   ],
+   [
+    "홀리킥 사랑부 2부(13세~청장년)",
+    "주일 정오 12:00",
+    "비전센터 5층"
+   ],
+   [
+    "차세대 더브레이크워십",
+    "매주(토) 오후 6:30",
+    "비전센터 1층"
+   ]
+  ],
+  "주중 예배": [
+   [
+    "토요청년예배(뉴웨이브워십)",
+    "매주(토) 오후 7:00",
+    "H-홀(워십센터 2층)"
+   ],
+   [
+    "화요전도예배(행복전도대)",
+    "매주(화) 오전 10:30",
+    "H-홀(워십센터 2층)"
+   ],
+   [
+    "HUG수요오전예배",
+    "매주(수) 오전 10:30",
+    "H-홀(워십센터 2층)"
+   ],
+   [
+    "수요저녁예배",
+    "매주(수) 오후 7:30",
+    "H-홀(워십센터 2층)"
+   ],
+   [
+    "새벽 1부 기도회",
+    "월~금 오전 5:00",
+    "더 채플(비전센터 2층)"
+   ],
+   [
+    "새벽 2부 기도회",
+    "월~금 오전 6:00",
+    "H-홀(워십센터 2층)"
+   ],
+   [
+    "금요성령집회",
+    "매주(금) 저녁 8:50",
+    "H-홀(워십센터 2층)"
+   ],
+   [
+    "소망대학",
+    "매주(목) 오전 10:30",
+    "H-홀(워십센터 2층)"
+   ]
+  ]
+ },
+ "giving": {
+  "note": "입금 시 송금자명에 이름 + 휴대폰 뒷번호 + 헌금명으로 적어 주세요. 예) 홍길동1977감사, 홍길동1977십일, 홍길동1977주정",
+  "accounts": [
+   {
+    "label": "십일조",
+    "bank": "신한은행",
+    "no": "140-014-474308"
+   },
+   {
+    "label": "주정헌금",
+    "bank": "새마을금고",
+    "no": "9002-1956-1095-7"
+   },
+   {
+    "label": "입금계좌",
+    "bank": "새마을금고",
+    "no": "9002-1686-3620-6"
+   }
+  ],
+  "items": [
+   [
+    "감사 헌금",
+    "감사"
+   ],
+   [
+    "비전 헌금",
+    "비전"
+   ],
+   [
+    "교회사랑 헌금",
+    "교사"
+   ],
+   [
+    "건축 헌금",
+    "건축"
+   ],
+   [
+    "부흥회 헌금",
+    "부흥"
+   ],
+   [
+    "생일감사 헌금",
+    "생일"
+   ],
+   [
+    "선교 헌금",
+    "선교"
+   ],
+   [
+    "십일조 헌금",
+    "십일"
+   ],
+   [
+    "오병이어 헌금",
+    "오병"
+   ],
+   [
+    "월삭 헌금",
+    "월삭"
+   ],
+   [
+    "임직 헌금",
+    "임직"
+   ],
+   [
+    "자녀비전 헌금",
+    "자비"
+   ],
+   [
+    "주일 헌금",
+    "주일"
+   ],
+   [
+    "절기 헌금",
+    "절기"
+   ],
+   [
+    "장학 헌금",
+    "장학"
+   ],
+   [
+    "특별작정 헌금",
+    "특작"
+   ]
+  ],
+  "banks": [
+   [
+    "국민은행",
+    "https://www.kbstar.com"
+   ],
+   [
+    "기업은행",
+    "https://www.ibk.co.kr"
+   ],
+   [
+    "농협",
+    "https://www.nonghyup.com"
+   ],
+   [
+    "새마을금고",
+    "https://www.kfcc.co.kr"
+   ],
+   [
+    "신한은행",
+    "https://www.shinhan.com"
+   ],
+   [
+    "우리은행",
+    "https://www.wooribank.com"
+   ],
+   [
+    "하나은행",
+    "https://www.kebhana.com"
+   ]
+  ],
+  "raw_check": [
+   [
+    "십일조",
+    "140-014-474308"
+   ],
+   [
+    "주정헌금",
+    "9002-1956-1095-7"
+   ],
+   [
+    "입금계좌",
+    "9002-1686-3620-6"
+   ]
+  ]
+ },
+ "directions": {
+  "lines": [
+   "지하철 이용시 오시는 방법",
+   "1호선  개봉역 2번에서 환승버스 구로01 타고 금옥여고앞(학마을)에서 하차",
+   "1호선  오류역 3번에서 환승버스 간선 6614 타고 금옥여고앞에서 하차",
+   "2호선  신정네거리역 4번에서 환승버스 양천 03 타고 한성교회앞에서 하차",
+   "5호선  목동역 5번에서 환승버스 양천 03 타고 한성교회앞에서 하차",
+   "버스 이용시 오시는 방법",
+   "지선버스",
+   "서부트럭 터미널앞 하차 - 6514",
+   "서부트럭 터미널 하차 - 6514, 5012",
+   "신정현대아파트 하차 - 5614, 6614, 6620, 6623, 6640",
+   "트럭터미널 주유소 하차 - 5614, 6614, 6620, 6623, 6627",
+   "금옥여고 하차 - 6614, 6620, 6623, 6640, 6657, 6716",
+   "간선버스",
+   "서부트럭 터미널 하차 - 260, 651, 652",
+   "광역버스",
+   "서부트럭 터미널 하차 - 604, 604-1"
+  ],
+  "maps": [
+   "media/static/06-img-01.webp",
+   "media/static/06-img-02.webp"
+  ]
+ },
+ "newcomer": {
+  "lines": [
+   "새가족 온라인 등록 안내",
+   "STEP 01",
+   "등록 설문지에 입력 사항을 작성하시면 가등록이 됩니다.",
+   "STEP 02",
+   "가등록 후 교역자의 등록 심방을 받으시면 등록이 확정됩니다.",
+   "*구글 설문지 작성 후 새가족부에서 안내 전화를 드립니다.",
+   "온라인새가족등록하기"
+  ],
+  "form": "https://docs.google.com/forms/d/e/1FAIpQLSc8IUTpfH1vuTr1KOj19_BUgHth_S3Iyk7aNjJ2tdNVueYv5A/viewform?vc=0&c=0&w=1&flr=0",
+  "images": [
+   "media/static/07-img-01.webp",
+   "media/static/07-img-02.webp"
+  ]
+ },
+ "live": {
+  "lines": [
+   "한성교회 인터넷생방송",
+   "\"인터넷생방송은 주일예배(1부~5부), 수요예배, 금요성령집회 시간에 이용 가능합니다.\"",
+   "\"주일 6부와 수요저녁 방송은 비대면 방식인 유튜브에서만 영상 최초 공개(녹화방송)로 진행됩니다.\"",
+   "유튜브생방송",
+   "예배 생방송은 예배 생방송 시작 5분 전부터 찬양과 함께 시작됩니다.",
+   "생방송을 시청하지 못하는 분들은 주일예배는 화요일 10:00, 수요저녁예배는 목요일 10:00, 금요성령집회는 토요일 10:00 이후에 설교, 찬양 녹화방송(VOD)을 시청하실 수 있습니다.",
+   "(사정에 따라 녹화방송 업데이트 시간이 다소 변동될 수 있습니다.)",
+   "헌금시간에 온라인 헌금을 이용하시면 됩니다.",
+   "(입금계좌 : 농협 355-0002-8201-63 한성교회, 새마을금고 9002-1686-3620-6 한성교회)"
+  ],
+  "youtube": "https://www.youtube.com/@happypeople7094/streams"
+ },
+ "happy": {
+  "lines": [
+   "‘행축’ 은 한성교회에서 매년 진행하는 전도행사를 지칭하는",
+   "‘행복한 사람들의 축제’ 를 줄여서 부르는 말입니다.",
+   "행복한 사람들의 축제(이하 행축)는 도원욱 목사의 목회철학에서부터 시작되었습니다.",
+   "도원욱 목사의 목회철학을 한 단어로 요약하면 ‘행복’입니다.",
+   "행복이라는 목회철학에서 ‘행복한 사람이 행복한 세상을 만듭니다.’라는 평생비전이 나오게 되었습니다.",
+   "행축ON 바로가기",
+   "첫째,",
+   "행축은  정체성(본질) 입니다.",
+   "행복한 사람들의 축제는 교회를 교회답게, 성도를 성도답게 하는 정체성이자 본질입니다. 예수를 만나 행복한 사람이 복음을 전하며 선교적 제자로 살게하는 실제적 제자훈련이라 할 수 있습니다.",
+   "둘째,",
+   "행축은  시스템 입니다.",
+   "행축은 일련의 교회 프로그램이나 전도법이 아닌 프로세스입니다. 교회의 존재 이유는 복음을전하기 위함입니다.",
+   "행축은 교회가 이 시대를 향해 가장 효과적으로 복음을 전할 수 있는 플랫폼입니다.",
+   "그렇기에 누구든지, 어느 교회든지 재현 가능하며 한성교회뿐 아니라 행축을 도입한 많은 한국교회에서 그 효과가 검증되고 있습니다.",
+   "셋째,",
+   "행축은  행복(성장)론  입니다.",
+   "교회는 본질에 충실하여 복음을 흘려보내면 행복해지고 성장합니다.",
+   "'행복한 사람이 행복한 세상을 만든다.' 이것이 바로 전도하는 가치와 목적을 한마디로 표현하는 행축의 슬로건입니다.",
+   "예수를 만나 행복해지고, 예수를 누림으로 그 행복이 깊어지며, 예수를 전함으로 더 큰 행복을 만든다는 것이 바로 행축이 추구하는 행복론이며 성장론입니다."
+  ],
+  "links": [
+   [
+    "행축ON",
+    "https://www.hansungchurch.com/newlife/main.asp"
+   ],
+   [
+    "행복매뉴얼",
+    "https://heyzine.com/flip-book/11759ae7a5.html"
+   ],
+   [
+    "행축아카데미",
+    "http://www.happymaker.academy/html/main.asp"
+   ],
+   [
+    "가을행축",
+    "http://www.hansungchurch.com/newlife/main.asp"
+   ]
+  ]
+ },
+ "home": {
+  "slides": [
+   "media/static/ms_583396629121350.webp",
+   "media/static/ms_2840188917599.webp",
+   "media/static/ms_193289143125455.webp"
+  ],
+  "video": "BiXGPp8r38c"
+ },
+ "contact": {
+  "zip": "08081",
+  "address": "서울특별시 양천구 신정로13길 21",
+  "denomination": "대한예수교장로회",
+  "tel": "02-2603-7200",
+  "fax": "02-2603-1115",
+  "email": "happymaker@hansungchurch.com",
+  "sns": {
+   "youtube": "https://www.youtube.com/channel/UCwg1mSaYYvY4zzxyCnjgo7A",
+   "instagram": "https://www.instagram.com/hansung_church/",
+   "facebook": "https://www.facebook.com/hansungcross"
+  }
+ }
+}

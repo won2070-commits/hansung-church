@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* 스킨: Mastercard DESIGN.md(getdesign) — 색·폰트·간격·질감만 차용 */
+:root {
+  --canvas: #f3f0ee;
+  --lifted: #fcfbfa;
+  --ink: #141413;
+  --charcoal: #262627;
+  --orange: #cf4500;
+  --orange-light: #f37338;
+  --clay: #9a3a0a;
+  --slate: #696969;
+  --dust: #d1cdc7;
+  --ghost: #e8e2da;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-lifted: var(--lifted);
+  --color-ink: var(--ink);
+  --color-charcoal: var(--charcoal);
+  --color-orange: var(--orange);
+  --color-orange-light: var(--orange-light);
+  --color-clay: var(--clay);
+  --color-slate: var(--slate);
+  --color-dust: var(--dust);
+  --color-ghost: var(--ghost);
+  --font-sans: "Pretendard Variable", Pretendard, var(--font-outfit), -apple-system, "Apple SD Gothic Neo", sans-serif;
+  --font-display: var(--font-outfit), "Pretendard Variable", Pretendard, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 450;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--orange-light); color: #fff; }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; border-radius: 8px; }
+
+@layer components {
+/* 제목: 촘촘한 자간(-2~-3%), 굵기 600 */
+.h-display { font-weight: 650; letter-spacing: -0.035em; line-height: 1.04; }
+.h-section { font-weight: 620; letter-spacing: -0.03em; line-height: 1.12; }
+
+/* eyebrow: 오렌지 점 + 대문자 트래킹. 대문자는 여기서만 */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-family: var(--font-display); font-size: 13px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+}
+.eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 99px; background: var(--orange); }
+
+/* 알약 버튼 */
+.pill { display: inline-flex; align-items: center; gap: .6rem; border-radius: 999px; padding: .85rem 1.5rem; font-weight: 600; letter-spacing: -0.01em; transition: transform .35s cubic-bezier(.2,.8,.2,1), background .3s, color .3s; }
+.pill:hover { transform: translateY(-2px); }
+.pill:active { transform: scale(.97); }
+.pill-ink { background: var(--ink); color: var(--canvas); }
+.pill-ink:hover { background: var(--orange); color: #fff; }
+.pill-line { border: 1.5px solid currentColor; }
+.pill-white { background: #fff; color: var(--ink); }
+.pill-orange { background: var(--orange); color: #fff; }
+.pill-orange:hover { background: var(--ink); }
+
+/* 위성 버튼(원형 미니 CTA) */
+.satellite { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 999px; background: #fff; color: var(--ink); transition: transform .4s cubic-bezier(.2,.8,.2,1), background .3s, color .3s; }
+.group:hover .satellite, .satellite:hover { transform: rotate(-45deg); background: var(--orange); color: #fff; }
+
+/* 노이즈 질감 (SOUL의 is-noise 섹션 대응) */
+.grain { position: relative; isolation: isolate; }
+.grain::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .22; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+}
+
+/* 마퀴 */
+.marquee { display: flex; width: max-content; animation: marquee var(--speed, 38s) linear infinite; }
+.marquee-rev { animation-direction: reverse; }
+.marquee-wrap:hover .marquee { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* 히어로 사진 크로스페이드 + 천천히 확대 */
+@keyframes kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
+.kenburns { animation: kenburns 9s ease-out both; }
+
+/* 게시글 본문 */
+.prose-post { font-size: 17px; line-height: 1.85; color: var(--charcoal); }
+.prose-post p { margin: 0 0 1em; }
+.prose-post img { display: block; width: 100%; height: auto; border-radius: 24px; margin: 0 0 14px; background: var(--ghost); }
+.prose-post a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+.prose-post table { width: 100%; border-collapse: collapse; margin: 1em 0; font-size: 15px; }
+.prose-post td, .prose-post th { border: 1px solid var(--dust); padding: .5em .7em; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee, .kenburns { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+/* GSAP 실행 전 깜빡임 방지: JS가 켜진 경우에만 숨김 */
+.js [data-reveal] { opacity: 0; }
