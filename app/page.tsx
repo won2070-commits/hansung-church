@@ -4,6 +4,7 @@ import WorshipAccordion from "@/components/home/WorshipAccordion";
 import SeasonCarousel from "@/components/home/SeasonCarousel";
 import ConnectToast from "@/components/home/ConnectToast";
 import { ArrowUpRight, Play, Arrow } from "@/components/Icons";
+import { PASTOR_STORY } from "@/lib/pastor";
 import { asset, board, cover, fmtDate, href, latest, niceTitle, site, BOARDS } from "@/lib/data";
 
 const img = (n: string) => asset(`assets/home/${n}.webp`);
@@ -92,7 +93,7 @@ export default function Home() {
         <div className="mt-20 grid gap-12 lg:grid-cols-[1fr_1.4fr]">
           <div className="flex flex-wrap items-start gap-3" data-reveal>
             <Link href="/newcomer/" className="pill pill-ink">처음 오셨나요? <ArrowUpRight /></Link>
-            <Link href="/about/" className="pill pill-line">담임목사 인사말</Link>
+            <Link href="/about/" className="pill pill-line">담임목사 소개</Link>
           </div>
           <p className="text-[clamp(1.35rem,2.3vw,2.1rem)] font-bold leading-[1.55] tracking-[-0.025em]" data-scrub>
             예수님을 만남으로 행복하고, 예수님을 누림으로 행복은 깊어지고, 예수님을 전함으로 더 큰 행복을 만드는 새 사람. 한성교회는 언제나 화사한 봄날 같은 새 인생을 함께 시작하는 행복한 사람들의 축제입니다.
@@ -227,10 +228,10 @@ export default function Home() {
           <div className="max-w-2xl">
             <p className="eyebrow mb-6" data-reveal>Senior pastor</p>
             <h2 className="h-display mb-8 text-[clamp(2.2rem,4.4vw,4.2rem)]" data-reveal>“이 세상에서 가장 행복한 사람은 누구일까요?”</h2>
-            <p className="mb-8 text-lg leading-relaxed text-charcoal" data-reveal>{g.paragraphs[1]}</p>
+            <p className="mb-8 text-lg leading-relaxed text-charcoal" data-reveal>{PASTOR_STORY.lead}</p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-4" data-reveal>
               <p className="text-xl font-bold tracking-[-0.03em]">도원욱 담임목사</p>
-              <Link href="/about/" className="pill pill-ink">인사말 전문 <ArrowUpRight /></Link>
+              <Link href="/about/" className="pill pill-ink">담임목사 이야기 <ArrowUpRight /></Link>
               <Link href="/about/staff/" className="pill pill-line">섬기는 이들</Link>
             </div>
           </div>

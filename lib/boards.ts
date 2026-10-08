@@ -31,7 +31,7 @@ export const asset = (p: string) => (/^https?:/.test(p) ? p : `${BASE}/${p.repla
 export const href = (meta: BoardMeta, seq?: number) => `/${meta.section}/${meta.slug}/${seq ? seq + "/" : ""}`;
 
 export const MENU: { title: string; en: string; items: [string, string][] }[] = [
-  { title: "교회안내", en: "About", items: [["담임목사 인사말", "/about/"], ["섬기는이들", "/about/staff/"], ["부서 소개", "/ministries/"], ["예배안내", "/worship/"], ["교회주보", "/life/bulletin/"], ["온라인헌금", "/giving/"], ["오시는길", "/location/"], ["새가족 등록", "/newcomer/"], ["갤러리H", "/life/gallery/"]] },
+  { title: "교회안내", en: "About", items: [["담임목사 소개", "/about/"], ["섬기는이들", "/about/staff/"], ["부서 소개", "/ministries/"], ["예배안내", "/worship/"], ["교회주보", "/life/bulletin/"], ["온라인헌금", "/giving/"], ["오시는길", "/location/"], ["새가족 등록", "/newcomer/"], ["갤러리H", "/life/gallery/"]] },
   { title: "한성TV", en: "Watch", items: BOARDS.filter((b) => b.section === "tv").map((b) => [b.name, href(b)] as [string, string]) },
   { title: "한성LIFE", en: "Life", items: BOARDS.filter((b) => b.section === "life" && !["bulletin", "gallery"].includes(b.slug)).map((b) => [b.name, href(b)] as [string, string]) },
   { title: "함께", en: "Together", items: [["예배생방송", "/live/"], ["행축ON", "/happy/"]] },
