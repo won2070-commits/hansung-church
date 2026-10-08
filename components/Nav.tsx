@@ -6,7 +6,7 @@ import Logo from "./Logo";
 import { MENU } from "@/lib/boards";
 import { ArrowUpRight } from "./Icons";
 
-const TOP: [string, string][] = [["교회안내", "/about/"], ["한성TV", "/tv/"], ["한성LIFE", "/life/"], ["생방송", "/live/"], ["행축ON", "/happy/"]];
+const TOP: [string, string][] = [["교회안내", "/about/"], ["부서", "/ministries/"], ["한성TV", "/tv/"], ["한성LIFE", "/life/"], ["생방송", "/live/"], ["행축ON", "/happy/"]];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);

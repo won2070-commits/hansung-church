@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 // 서브페이지 머리: eyebrow + 대형 제목 + 크림 위 고스트 워터마크
-export default function PageHero({ en, title, desc, crumbs, ghost, children }: {
-  en: string; title: React.ReactNode; desc?: React.ReactNode; crumbs?: [string, string][]; ghost?: string; children?: React.ReactNode;
+export default function PageHero({ en, title, desc, crumbs, ghost, children, compact = false }: {
+  en: string; title: React.ReactNode; desc?: React.ReactNode; crumbs?: [string, string][]; ghost?: string; children?: React.ReactNode; compact?: boolean;
 }) {
   return (
-    <section className="relative overflow-hidden px-6 pb-16 pt-36 sm:px-8 sm:pt-44 md:pb-24">
+    <section className={`relative overflow-hidden px-6 pb-16 sm:px-8 md:pb-24 ${compact ? "pt-16" : "pt-36 sm:pt-44"}`}>
       {ghost && <p className="pointer-events-none absolute -right-6 top-24 select-none whitespace-nowrap text-[clamp(5rem,15vw,15rem)] font-bold leading-none tracking-[-0.05em] text-ghost" aria-hidden="true" style={{ fontFamily: "var(--font-display)" }}>{ghost}</p>}
       <div className="relative mx-auto max-w-[1280px]">
         {crumbs && (

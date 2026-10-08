@@ -49,9 +49,9 @@ export default function Home() {
     .map(({ p, meta }) => ({ title: niceTitle(p, meta).title, date: fmtDate(p.date), board: meta.name, href: href(meta, p.seq), cover: cover(p)!, cta: meta.slug === "notice" ? "안내 보기" : "자세히" }));
   // 당신을 위한 자리 (VOUS "VOUS is for you" 구조) — 모두 공식 자료 근거
   const places = [
-    { en: "Small groups", t: "다락방", d: "교구와 다락방으로 모여 삶과 말씀을 나눕니다. 다락방 교안은 H-빌리지에서 볼 수 있습니다.", h: "https://hansung-h-village.netlify.app/", cta: "H-빌리지 다락방", img: img("hero-table"), ext: true },
-    { en: "Next generation", t: "차세대", d: "영유아부부터 청소년부까지 주일 오전 10시와 정오에 연령별로 예배합니다. 토요일 저녁엔 더브레이크워십이 있습니다.", h: "/worship/#w1", cta: "교회학교 예배", img: img("kids-art"), ext: false },
-    { en: "Young adults", t: "청년", d: "토요일 저녁 7시 뉴웨이브워십과 주일 오후 3시 40분 젊은이예배에서 청년들이 함께 예배합니다.", h: "/tv/youth/", cta: "청년예배 말씀", img: img("praise"), ext: false },
+    { en: "Small groups", t: "다락방", d: "교구와 다락방으로 모여 삶과 말씀을 나눕니다. 다락방 교안은 H-빌리지에서 볼 수 있습니다.", h: "/ministries/#adult", cta: "교구·다락방 소개", img: img("hero-table"), ext: false },
+    { en: "Next generation", t: "차세대", d: "영유아부부터 청소년부까지 주일 오전 10시와 정오에 연령별로 예배합니다. 토요일 저녁엔 더브레이크워십이 있습니다.", h: "/ministries/#nextgen", cta: "차세대 소개", img: img("kids-art"), ext: false },
+    { en: "Young adults", t: "청년", d: "토요일 저녁 7시 뉴웨이브워십과 주일 오후 3시 40분 젊은이예배에서 청년들이 함께 예배합니다.", h: "/ministries/#young", cta: "청년부 소개", img: img("praise"), ext: false },
   ];
   const strengths = [
     { t: "삶에 닿는 말씀", d: "설교학을 연구하고 가르쳐 온 도원욱 담임목사가 매주 말씀을 전합니다. 놓친 설교는 한성TV에서 언제든 다시 들을 수 있습니다.", h: "/tv/sunday/" },
@@ -356,7 +356,10 @@ export default function Home() {
       {/* 당신을 위한 자리 — VOUS "VOUS is for you" 구조 */}
       <section className="mx-auto max-w-[1280px] px-6 pt-24 sm:px-8 md:pt-32" aria-labelledby="places-title">
         <p className="eyebrow mb-6" data-reveal>Hansung is for you</p>
-        <h2 id="places-title" className="h-display mb-14 text-[clamp(2.4rem,5vw,4.8rem)]" data-reveal>당신을 위한 자리가<br />있습니다.</h2>
+        <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+          <h2 id="places-title" className="h-display text-[clamp(2.4rem,5vw,4.8rem)]" data-reveal>당신을 위한 자리가<br />있습니다.</h2>
+          <Link href="/ministries/" className="pill pill-line" data-reveal>모든 부서 보기 <ArrowUpRight /></Link>
+        </div>
         <ul className="grid gap-5 md:grid-cols-3">
           {places.map((x) => {
             const inner = (
