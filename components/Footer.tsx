@@ -26,6 +26,10 @@ export default function Footer() {
             </div>
           ))}
         </div>
+        <a href={`tel:${c.tel}`} className="group mb-12 flex flex-wrap items-center justify-between gap-4 border border-white/25 p-6 transition-colors hover:border-orange-light hover:bg-orange-light hover:text-ink">
+          <span><span className="block text-[11px] font-bold uppercase tracking-[0.18em] opacity-60">Need care?</span><span className="mt-1 block text-xl font-bold tracking-[-0.03em]">도움이나 기도가 필요하신가요? 언제든 연락 주세요.</span></span>
+          <span className="text-lg font-bold" style={{ fontFamily: "var(--font-display)" }}>{c.tel} ↗</span>
+        </a>
         <div className="flex flex-col gap-6 border-t border-white/15 pt-10 text-sm text-canvas/55 lg:flex-row lg:items-center lg:justify-between">
           <Logo light />
           <address className="not-italic leading-7">

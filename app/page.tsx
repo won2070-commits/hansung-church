@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Hero from "@/components/home/Hero";
 import WorshipAccordion from "@/components/home/WorshipAccordion";
+import SeasonCarousel from "@/components/home/SeasonCarousel";
+import ConnectToast from "@/components/home/ConnectToast";
 import { ArrowUpRight, Play, Arrow } from "@/components/Icons";
 import { asset, board, cover, fmtDate, href, latest, niceTitle, site, BOARDS } from "@/lib/data";
 
@@ -40,6 +42,17 @@ export default function Home() {
   const bulletin = board("bulletin").posts[0];
   const notices = board("notice").posts.slice(0, 3);
   const g = s.greeting;
+  // 이번 시즌: 이미지가 있는 최근 공지·행사 글 (VOUS Calendar 구조)
+  const season = latest(["notice", "photo", "dawn-sketch", "hakki", "family"], 30)
+    .filter(({ p }) => cover(p))
+    .slice(0, 8)
+    .map(({ p, meta }) => ({ title: niceTitle(p, meta).title, date: fmtDate(p.date), board: meta.name, href: href(meta, p.seq), cover: cover(p)!, cta: meta.slug === "notice" ? "안내 보기" : "자세히" }));
+  // 당신을 위한 자리 (VOUS "VOUS is for you" 구조) — 모두 공식 자료 근거
+  const places = [
+    { en: "Small groups", t: "다락방", d: "교구와 다락방으로 모여 삶과 말씀을 나눕니다. 다락방 교안은 H-빌리지에서 볼 수 있습니다.", h: "https://hansung-h-village.netlify.app/", cta: "H-빌리지 다락방", img: img("hero-table"), ext: true },
+    { en: "Next generation", t: "차세대", d: "영유아부부터 청소년부까지 주일 오전 10시와 정오에 연령별로 예배합니다. 토요일 저녁엔 더브레이크워십이 있습니다.", h: "/worship/#w1", cta: "교회학교 예배", img: img("kids-art"), ext: false },
+    { en: "Young adults", t: "청년", d: "토요일 저녁 7시 뉴웨이브워십과 주일 오후 3시 40분 젊은이예배에서 청년들이 함께 예배합니다.", h: "/tv/youth/", cta: "청년예배 말씀", img: img("praise"), ext: false },
+  ];
   const strengths = [
     { t: "삶에 닿는 말씀", d: "설교학을 연구하고 가르쳐 온 도원욱 담임목사가 매주 말씀을 전합니다. 놓친 설교는 한성TV에서 언제든 다시 들을 수 있습니다.", h: "/tv/sunday/" },
     { t: "언제나 열린 예배", d: "주일 여섯 번의 예배와 영어·중국어 예배, 수요예배와 금요성령집회, 월요일부터 금요일까지의 새벽기도. 삶의 시간에 맞는 예배가 있습니다.", h: "/worship/" },
@@ -66,10 +79,11 @@ export default function Home() {
 
   return (
     <>
-      <Hero slides={["hero-stage", "hero-festival", "hero-child", "hero-table"].map(img)} news={news} />
+      <Hero slides={["hero-stage", "hero-festival", "hero-child", "hero-table"].map(img)} news={news} sns={s.contact.sns} />
+      <ConnectToast />
 
       {/* Welcome Home — SOUL의 대형 환영 문구 + 인라인 사진 */}
-      <section className="mx-auto max-w-[1280px] px-6 pb-20 pt-24 sm:px-8 md:pt-32">
+      <section id="welcome" className="mx-auto max-w-[1280px] scroll-mt-24 px-6 pb-20 pt-24 sm:px-8 md:pt-32">
         <p className="eyebrow mb-10" data-reveal>Welcome home</p>
         <h2 className="h-display max-w-6xl text-[clamp(2.6rem,6.4vw,6.6rem)]" data-reveal>
           처음이어도 괜찮아요<span className="mx-3 inline-block h-[0.78em] w-[1.9em] translate-y-[0.08em] rounded-full bg-cover bg-center align-baseline" style={{ backgroundImage: `url(${img("mom-child")})` }} aria-hidden="true" />
@@ -139,6 +153,18 @@ export default function Home() {
             ]} />
           </div>
         </div>
+      </section>
+
+      {/* 이번 시즌 — VOUS Calendar식 가로 캐러셀 */}
+      <section className="mx-auto max-w-[1280px] px-6 pt-24 sm:px-8 md:pt-32" aria-labelledby="season-title">
+        <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p className="eyebrow mb-6" data-reveal>This season</p>
+            <h2 id="season-title" className="h-display text-[clamp(2.4rem,5vw,4.8rem)]" data-reveal>지금 한성교회는.</h2>
+          </div>
+          <Link href="/life/notice/" className="pill pill-line" data-reveal>공지 전체 <ArrowUpRight /></Link>
+        </div>
+        <div data-reveal><SeasonCarousel items={season} /></div>
       </section>
 
       {/* 말씀 — 왼쪽 고정, 오른쪽 스크롤 (Passion City 미디어 배치) */}
@@ -325,6 +351,36 @@ export default function Home() {
       {/* Values marquee — SOUL 가치 마퀴 */}
       <section className="overflow-hidden bg-ink py-12 text-canvas" aria-label="행복의 세 걸음">
         <Marquee words={["예수를 만나 행복", "예수를 누려 깊어지는 행복", "예수를 전해 더 큰 행복"]} reverse speed="52s" />
+      </section>
+
+      {/* 당신을 위한 자리 — VOUS "VOUS is for you" 구조 */}
+      <section className="mx-auto max-w-[1280px] px-6 pt-24 sm:px-8 md:pt-32" aria-labelledby="places-title">
+        <p className="eyebrow mb-6" data-reveal>Hansung is for you</p>
+        <h2 id="places-title" className="h-display mb-14 text-[clamp(2.4rem,5vw,4.8rem)]" data-reveal>당신을 위한 자리가<br />있습니다.</h2>
+        <ul className="grid gap-5 md:grid-cols-3">
+          {places.map((x) => {
+            const inner = (
+              <>
+                <div className="aspect-[4/3] overflow-hidden border-b border-ink bg-ink">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={x.img} alt="" loading="lazy" className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0" />
+                </div>
+                <div className="flex flex-1 flex-col p-7">
+                  <p className="eyebrow mb-4">{x.en}</p>
+                  <h3 className="h-section text-[clamp(1.8rem,3vw,2.6rem)]">{x.t}</h3>
+                  <p className="mt-3 flex-1 text-[15px] leading-relaxed text-charcoal">{x.d}</p>
+                  <span className="mt-8 flex items-center justify-between border-t border-ink pt-4 text-[13px] font-bold">{x.cta}<span className="text-xl transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true">↗</span></span>
+                </div>
+              </>
+            );
+            const cls = "group flex h-full flex-col border border-ink bg-white transition-colors hover:bg-orange-light";
+            return (
+              <li key={x.t} data-reveal>
+                {x.ext ? <a href={x.h} target="_blank" rel="noopener" className={cls}>{inner}</a> : <Link href={x.h} className={cls}>{inner}</Link>}
+              </li>
+            );
+          })}
+        </ul>
       </section>
 
       {/* 프로세스 — 처음 오신 분의 네 걸음, 스크롤하면 카드가 차곡차곡 쌓인다 */}

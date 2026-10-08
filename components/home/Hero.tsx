@@ -6,7 +6,12 @@ import { ArrowUpRight, ChevronLeft, ChevronRight } from "../Icons";
 export type News = { title: string; date: string; board: string; href: string; cover: string | null };
 
 // SOUL Church 히어로 구조: 풀블리드 사진 + 하단에 떠 있는 "소식" 카드(화살표·점·CTA)
-export default function Hero({ slides, news }: { slides: string[]; news: News[] }) {
+const SnsIcon = ({ k }: { k: string }) =>
+  k === "youtube" ? <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.8 15.1V8.9L15.2 12Z" /></svg>
+  : k === "instagram" ? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg>
+  : <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V6.7c0-.8.5-1 .9-1H17V2.1L14 2c-3.3 0-4 2.4-4 4v2.5H7.7V12H10v10h4V12h2.7l.4-3.5Z" /></svg>;
+
+export default function Hero({ slides, news, sns }: { slides: string[]; news: News[]; sns: Record<string, string> }) {
   const [s, setS] = useState(0);
   const [n, setN] = useState(0);
   useEffect(() => {
@@ -28,7 +33,21 @@ export default function Hero({ slides, news }: { slides: string[]; news: News[] 
         ))}
         <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_20%_100%,rgba(28,28,30,.85),rgba(28,28,30,.25)_55%,rgba(28,28,30,.1))]" />
 
-        <div className="relative flex h-full flex-col justify-end px-5 pb-[320px] pt-28 sm:px-12 sm:pb-[340px] lg:pb-[340px]">
+        {/* VOUS Church식 세로 레일: 왼쪽 FOLLOW + SNS, 오른쪽 아래로 */}
+        <div className="absolute left-5 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-5 text-canvas lg:flex">
+          {(["youtube", "instagram", "facebook"] as const).map((k) => (
+            <a key={k} href={sns[k]} target="_blank" rel="noopener" aria-label={`한성교회 ${k}`} className="transition-colors hover:text-orange-light"><SnsIcon k={k} /></a>
+          ))}
+          <span className="h-16 w-px bg-canvas/50" aria-hidden="true" />
+          <span className="text-[11px] font-bold tracking-[0.3em] [writing-mode:vertical-rl]" style={{ fontFamily: "var(--font-display)" }}>FOLLOW</span>
+        </div>
+        <a href="#welcome" className="absolute right-5 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-4 text-canvas transition-colors hover:text-orange-light lg:flex" aria-label="아래로 둘러보기">
+          <span className="text-[11px] font-bold tracking-[0.3em] [writing-mode:vertical-rl]" style={{ fontFamily: "var(--font-display)" }}>DISCOVER</span>
+          <span className="h-16 w-px bg-current opacity-60" aria-hidden="true" />
+          <span className="animate-bounce text-lg" aria-hidden="true">↓</span>
+        </a>
+
+        <div className="relative flex h-full flex-col justify-end px-5 pb-[320px] pt-28 sm:px-12 sm:pb-[340px] lg:px-20 lg:pb-[340px]">
           <p className="eyebrow mb-6 text-canvas/80 animate-[fadeUp_1s_.2s_both]">Hansung Church · Seoul</p>
           <h1 className="h-display max-w-6xl text-[clamp(2.7rem,7.2vw,7.4rem)] text-canvas animate-[fadeUp_1.1s_.35s_both]">
             행복한 사람이<br />행복한 세상을 <span className="text-orange-light">만듭니다.</span>
