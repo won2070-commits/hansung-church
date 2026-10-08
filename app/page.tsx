@@ -40,6 +40,13 @@ export default function Home() {
   const bulletin = board("bulletin").posts[0];
   const notices = board("notice").posts.slice(0, 3);
   const g = s.greeting;
+  const strengths = [
+    { t: "삶에 닿는 말씀", d: "설교학을 연구하고 가르쳐 온 도원욱 담임목사가 매주 말씀을 전합니다. 놓친 설교는 한성TV에서 언제든 다시 들을 수 있습니다.", h: "/tv/sunday/" },
+    { t: "언제나 열린 예배", d: "주일 여섯 번의 예배와 영어·중국어 예배, 수요예배와 금요성령집회, 월요일부터 금요일까지의 새벽기도. 삶의 시간에 맞는 예배가 있습니다.", h: "/worship/" },
+    { t: "전도가 축제가 되는 교회", d: "해마다 여는 ‘행복한 사람들의 축제’, 행축. 한 번의 행사가 아니라 교회의 체질입니다. 이제는 행축아카데미로 다른 교회들과도 이 기쁨을 나눕니다.", h: "/happy/" },
+    { t: "모든 세대가 함께 자라는 곳", d: "영유아부부터 청소년부, eKids 영어예배, 청년 뉴웨이브워십까지. 특별새벽기도회에는 아이들은 콰이어로, 부모는 교사로 함께 섭니다.", h: "/worship/#w1" },
+    { t: "혼자 두지 않는 공동체", d: "다락방에서 삶을 나누고, 가정예배 ‘말씀 한 상’으로 집에서도 예배합니다. 고등부·청년부 장학생을 세우고, 교회 안 갤러리H에서 작은 쉼을 누립니다.", h: "/life/" },
+  ];
   // 후기: 특새 은혜나눔 중 짧은 감사·간증글만(개인 사정·도움 요청 글은 제외)
   const graceMeta = BOARDS.find((b) => b.slug === "dawn-grace")!;
   const grace = [519900, 519896, 519895, 519894, 519897, 519887, 519885, 519904, 519893, 519903]
@@ -62,7 +69,7 @@ export default function Home() {
       <Hero slides={["hero-stage", "hero-festival", "hero-child", "hero-table"].map(img)} news={news} />
 
       {/* Welcome Home — SOUL의 대형 환영 문구 + 인라인 사진 */}
-      <section className="mx-auto max-w-[1280px] px-6 py-24 sm:px-8 md:py-32">
+      <section className="mx-auto max-w-[1280px] px-6 pb-20 pt-24 sm:px-8 md:pt-32">
         <p className="eyebrow mb-10" data-reveal>Welcome home</p>
         <h2 className="h-display max-w-6xl text-[clamp(2.6rem,6.4vw,6.6rem)]" data-reveal>
           처음이어도 괜찮아요<span className="mx-3 inline-block h-[0.78em] w-[1.9em] translate-y-[0.08em] rounded-full bg-cover bg-center align-baseline" style={{ backgroundImage: `url(${img("mom-child")})` }} aria-hidden="true" />
@@ -77,6 +84,33 @@ export default function Home() {
             예수님을 만남으로 행복하고, 예수님을 누림으로 행복은 깊어지고, 예수님을 전함으로 더 큰 행복을 만드는 새 사람. 한성교회는 언제나 화사한 봄날 같은 새 인생을 함께 시작하는 행복한 사람들의 축제입니다.
           </p>
         </div>
+      </section>
+
+      {/* 소개 — 한성교회의 강점과 따뜻함 (모든 문장은 공식 자료 근거: 인사말·예배안내·행축·특새 나눔·공지) */}
+      <section className="mx-auto max-w-[1280px] px-6 pb-24 sm:px-8 md:pb-32" aria-labelledby="about-title">
+        <div className="grid gap-12 border-t-2 border-ink pt-16 lg:grid-cols-[1fr_1fr] lg:gap-20">
+          <div>
+            <p className="eyebrow mb-6" data-reveal>Who we are</p>
+            <h2 id="about-title" className="h-display text-[clamp(2.2rem,4.6vw,4.4rem)]" data-reveal>행복을 먼저 받은 사람들이,<br />그 행복을 <span className="hl">나누는</span> 교회.</h2>
+          </div>
+          <div className="space-y-6 text-[17px] leading-[1.95] text-charcoal lg:pt-14">
+            <p data-reveal>한성교회는 서울 양천구 신정동에 자리한 대한예수교장로회 교회입니다. 우리가 붙든 고백은 단순합니다. 예수님을 만나면 사람이 행복해지고, 행복한 사람이 행복한 세상을 만든다는 것입니다.</p>
+            <p data-reveal>그래서 이곳의 주일은 축제처럼 북적입니다. 아기를 안고 오는 부모, 친구 손을 잡고 오는 아이, 토요일 밤 찬양으로 한 주를 여는 청년, 새벽마다 본당의 불을 켜는 성도들. 서로 다른 자리에서 왔지만 한 식탁에 둘러앉습니다.</p>
+            <p className="font-bold text-ink" data-reveal>교회가 처음이어도, 오랜만에 다시 오는 걸음이어도 괜찮습니다. 담임목사님의 축복처럼, 여기서 화사한 봄날 같은 새 인생이 시작되기를 바랍니다.</p>
+          </div>
+        </div>
+        <ol className="mt-20 border-t-2 border-ink">
+          {strengths.map((x, i) => (
+            <li key={x.t} data-reveal>
+              <Link href={x.h} className="group grid grid-cols-[44px_1fr_32px] items-start gap-x-4 gap-y-2 border-b border-ink/40 py-8 transition-all duration-300 hover:bg-ink hover:pl-4 hover:text-orange-light sm:grid-cols-[90px_0.9fr_1.1fr_48px] sm:items-center sm:gap-8">
+                <span className="pt-1 text-[13px] sm:pt-0" style={{ fontFamily: "var(--font-display)" }}>{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="h-section text-[clamp(1.5rem,2.6vw,2.4rem)]">{x.t}</h3>
+                <p className="col-start-2 text-[15px] leading-relaxed text-charcoal transition-colors group-hover:text-canvas/80 sm:col-start-auto">{x.d}</p>
+                <span className="row-start-1 col-start-3 text-2xl transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 sm:col-start-auto sm:row-start-auto sm:text-right" aria-hidden="true">↗</span>
+              </Link>
+            </li>
+          ))}
+        </ol>
       </section>
 
       {/* Mission marquee — SOUL "LOVE IN ACTION" 자리 */}
