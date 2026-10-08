@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { MENU } from "@/lib/boards";
-import { site } from "@/lib/data";
+import { site, asset } from "@/lib/data";
 import { ArrowUpRight } from "./Icons";
 
 export default function Footer() {
@@ -25,6 +25,19 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+        </div>
+        <div className="mb-12 grid gap-4 sm:grid-cols-[auto_1fr_1fr] sm:items-stretch">
+          <p className="eyebrow self-center text-canvas/50 sm:pr-6">함께하는 곳</p>
+          <div className="flex items-center gap-5 border border-white/20 p-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={asset("brand/cafe-boaz-white.svg")} alt="cafeBoaz 보아즈" className="h-12 w-auto" />
+            <span><span className="block font-bold">카페 보아즈</span><span className="block text-sm text-canvas/55">한성교회 카페</span></span>
+          </div>
+          <div className="flex items-center gap-5 border border-white/20 p-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={asset("brand/jacobs-ladder-white.svg")} alt="Jacob's Ladder 제이콥스 래더" className="h-14 w-auto" />
+            <span><span className="block font-bold">제이콥스 래더</span><span className="block text-sm text-canvas/55">출판사 · 『들리는 설교, 끌리는 설교』</span></span>
+          </div>
         </div>
         <a href={`tel:${c.tel}`} className="group mb-12 flex flex-wrap items-center justify-between gap-4 border border-white/25 p-6 transition-colors hover:border-orange-light hover:bg-orange-light hover:text-ink">
           <span><span className="block text-[11px] font-bold uppercase tracking-[0.18em] opacity-60">Need care?</span><span className="mt-1 block text-xl font-bold tracking-[-0.03em]">도움이나 기도가 필요하신가요? 언제든 연락 주세요.</span></span>

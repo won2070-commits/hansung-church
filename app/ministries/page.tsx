@@ -1,7 +1,7 @@
 import Link from "next/link";
 import PageHero, { Wrap } from "@/components/PageHero";
 import { ArrowUpRight } from "@/components/Icons";
-import { asset, site } from "@/lib/data";
+import { asset, site, board, href, BOARDS } from "@/lib/data";
 import { MINISTRIES } from "@/lib/ministries";
 
 export const metadata = { title: "부서 소개" };
@@ -10,6 +10,13 @@ export default function Page() {
   const s = site();
   const rows = Object.values(s.worship).flat();
   const staff = s.pastors.flatMap((g) => g.members).filter((m) => !/원로목사|담임목사/.test(m.name));
+  const photoMeta = BOARDS.find((b) => b.slug === "photo")!;
+  const photoOf = (ph?: { seq: number; i: number }) => {
+    if (!ph) return null;
+    const p = board("photo").posts.find((x) => x.seq === ph.seq);
+    const img = p?.images[ph.i] ?? p?.images[0];
+    return p && img ? { src: asset(img), title: p.title.replace(/\(\d+\)$/, "").trim(), href: href(photoMeta, p.seq) } : null;
+  };
   return (
     <>
       <PageHero en="Ministries" ghost="TOGETHER" crumbs={[["교회안내", "/about/"], ["부서 소개", "/ministries/"]]}
@@ -39,6 +46,35 @@ export default function Page() {
                 <p className={`mt-5 max-w-2xl text-lg leading-relaxed ${i % 2 ? "text-canvas/80" : "text-ink/80"}`}>{m.tagline}</p>
               </div>
 
+              {m.depts && (
+                <ul className="mb-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {m.depts.map((d) => {
+                    const ph = photoOf(d.photo);
+                    const times = rows.filter(([n]) => d.match.test(n));
+                    return (
+                      <li key={d.name} className="group flex flex-col border border-ink bg-white" data-reveal>
+                        {ph ? (
+                          <Link href={ph.href} className="block aspect-[4/3] overflow-hidden border-b border-ink bg-ghost" title={`사진: ${ph.title}`}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={ph.src} alt={`${d.name} — ${ph.title}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                          </Link>
+                        ) : (
+                          <div className="grid aspect-[4/3] place-items-center border-b border-ink bg-orange-light px-4 text-center">
+                            <span className="h-section text-[clamp(1.4rem,2.2vw,1.9rem)]">{d.name}</span>
+                          </div>
+                        )}
+                        <div className="flex flex-1 flex-col p-5">
+                          <p className="text-xl font-bold tracking-[-0.03em]">{d.name}{d.age && <span className="ml-2 text-[13px] font-bold text-slate">{d.age}</span>}</p>
+                          <ul className="mt-3 flex-1 space-y-1 text-[14px] text-charcoal">
+                            {times.map(([n, t, p]) => <li key={n}><b className="tabular-nums">{t.replace(/^주일\s/, "주일 ")}</b> · {p}</li>)}
+                          </ul>
+                          {ph && <Link href={ph.href} className="mt-4 truncate text-[12px] text-slate underline-offset-2 hover:underline">사진 · {ph.title}</Link>}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
               <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
                 <div data-reveal>
                   <h3 className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em]">예배 시간과 장소</h3>
