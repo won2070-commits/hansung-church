@@ -31,7 +31,7 @@ export default function Footer() {
           <span className="text-lg font-bold" style={{ fontFamily: "var(--font-display)" }}>{c.tel} ↗</span>
         </a>
         <div className="flex flex-col gap-6 border-t border-white/15 pt-10 text-sm text-canvas/55 lg:flex-row lg:items-center lg:justify-between">
-          <Logo light />
+          <Logo light className="h-12 self-start lg:self-center" />
           <address className="not-italic leading-7">
             {c.denomination} 한성교회 · (우 {c.zip}) {c.address}<br />
             대표전화 {c.tel} · 팩스 {c.fax} · <a className="hover:text-canvas" href={`mailto:${c.email}`}>{c.email}</a>

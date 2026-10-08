@@ -30,7 +30,7 @@ export default function Nav() {
     <>
       <header className={`fixed inset-x-0 top-0 z-50 px-3 pt-3 transition-transform duration-500 sm:px-6 sm:pt-5 ${hidden && !open ? "-translate-y-[130%]" : ""}`}>
         <nav aria-label="주요 메뉴" className="mx-auto flex h-16 max-w-[1280px] items-center justify-between border border-ink bg-canvas/95 pl-5 pr-2 backdrop-blur-md sm:pl-7">
-          <Link href="/" aria-label="한성교회 홈"><Logo /></Link>
+          <Link href="/" aria-label="한성교회 홈"><Logo className="h-8 sm:h-10" /></Link>
           <ul className="hidden items-center gap-1 lg:flex">
             {TOP.map(([t, h]) => (
               <li key={h}>
