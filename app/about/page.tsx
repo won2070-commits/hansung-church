@@ -50,7 +50,6 @@ export default function Page() {
               <Link href="/worship/" className="pill pill-line">예배 시간</Link>
             </div>
           </div>
-          <p className="mt-6 text-[12px] text-slate">{S.sources}</p>
         </div>
       </Wrap>
       <Wrap className="grid gap-16 border-t-2 border-ink pb-32 pt-20 lg:grid-cols-[0.85fr_1.15fr]">
