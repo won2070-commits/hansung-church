@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ServiceBar from "@/components/ServiceBar";
 import Motion from "@/components/Motion";
+import VideoModal from "@/components/VideoModal";
 
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <ServiceBar />
         <Motion />
+        <VideoModal />
       </body>
     </html>
   );

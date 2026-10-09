@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { BOOK_ORDER } from "@/lib/bible";
 import { Play, ArrowUpRight } from "./Icons";
 
-export type Item = { seq: number; title: string; who: string; date: string; bible: string; cover: string | null; href: string; video: boolean; book?: string; board?: string };
+export type Item = { seq: number; title: string; who: string; date: string; bible: string; cover: string | null; href: string; video: boolean; book?: string; board?: string; yt?: string };
 
 const PAGE = 24;
 
@@ -84,7 +84,7 @@ export default function BoardList({ items, kind, filters = false }: { items: Ite
         <ul className={`grid gap-x-5 gap-y-10 sm:grid-cols-2 ${kind === "video" ? "lg:grid-cols-3" : "lg:grid-cols-4"}`}>
           {shown.map((i) => (
             <li key={i.seq}>
-              <Link href={i.href} className="group block">
+              <Link href={i.href} className="group block" data-yt={i.yt} data-title={i.title}>
                 <div className={`relative overflow-hidden rounded-none bg-ghost ${kind === "video" ? "aspect-video" : "aspect-[4/5]"}`}>
                   {i.cover
                     // eslint-disable-next-line @next/next/no-img-element

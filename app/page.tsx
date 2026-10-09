@@ -175,7 +175,7 @@ export default function Home() {
             <div data-pin="#word">
               <p className="eyebrow mb-6" data-reveal>This week&apos;s word</p>
               <h2 className="h-display mb-10 text-[clamp(2.4rem,5vw,4.8rem)]" data-reveal>오늘을 살아갈<br />말씀.</h2>
-              <Link href={href(sundayMeta, sunday.seq)} className="group block" data-reveal>
+              <Link href={href(sundayMeta, sunday.seq)} className="group block" data-reveal data-yt={sunday.youtube[0]} data-title={niceTitle(sunday, sundayMeta).title}>
                 <div className="relative aspect-video overflow-hidden rounded-none bg-ink">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={`https://i.ytimg.com/vi/${sunday.youtube[0]}/maxresdefault.jpg`} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -190,7 +190,7 @@ export default function Home() {
           <ul className="space-y-4">
             {more.map(({ p, meta, t }) => (
               <li key={meta.slug} data-reveal>
-                <Link href={href(meta, p.seq)} className="group grid grid-cols-[132px_1fr] items-center gap-5 rounded-none border border-dust bg-white p-3 pr-6 transition-colors hover:bg-lifted sm:grid-cols-[200px_1fr_auto]">
+                <Link href={href(meta, p.seq)} data-yt={p.youtube[0]} data-title={t.title} className="group grid grid-cols-[132px_1fr] items-center gap-5 rounded-none border border-dust bg-white p-3 pr-6 transition-colors hover:bg-lifted sm:grid-cols-[200px_1fr_auto]">
                   <div className="relative aspect-video overflow-hidden rounded-none bg-ink">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={`https://i.ytimg.com/vi/${p.youtube[0]}/hqdefault.jpg`} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />

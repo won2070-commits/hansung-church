@@ -8,7 +8,7 @@ import { bookOf } from "@/lib/bible";
 
 const toItem = (p: Post, m: BoardMeta): Item => {
   const t = niceTitle(p, m);
-  return { seq: p.seq, title: t.title, who: t.who, date: fmtDate(p.date), bible: p.bible, cover: cover(p), href: href(m, p.seq), video: !!p.youtube[0], book: bookOf(p.bible, p.title), board: m.name };
+  return { seq: p.seq, title: t.title, who: t.who, date: fmtDate(p.date), bible: p.bible, cover: cover(p), href: href(m, p.seq), video: !!p.youtube[0], book: bookOf(p.bible, p.title), board: m.name, yt: p.youtube[0] };
 };
 
 const SECTION = {
@@ -41,7 +41,7 @@ function LatestBanner() {
             <p className="mt-3 text-canvas/75">{[p.bible, t.who, fmtDate(p.date)].filter(Boolean).join(" · ")}</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <Link href={href(m, p.seq)} className="pill bg-orange-light text-ink hover:bg-white"><Play size={16} /> 설교 보기</Link>
+            <Link href={href(m, p.seq)} data-yt={p.youtube[0]} data-title={t.title} className="pill bg-orange-light text-ink hover:bg-white"><Play size={16} /> 설교 보기</Link>
             <a href="https://www.youtube.com/channel/UCwg1mSaYYvY4zzxyCnjgo7A" target="_blank" rel="noopener" className="pill pill-line text-canvas">예배 전체 · 유튜브 <ArrowUpRight size={15} /></a>
           </div>
         </div>
@@ -91,7 +91,7 @@ export function Hub({ section }: { section: Section }) {
                   const t = niceTitle(p, m); const c = cover(p);
                   return (
                     <li key={p.seq} data-reveal>
-                      <Link href={href(m, p.seq)} className="group block">
+                      <Link href={href(m, p.seq)} className="group block" data-yt={p.youtube[0]} data-title={t.title}>
                         {m.kind !== "text" && (
                           <div className={`relative mb-4 overflow-hidden rounded-none bg-ghost ${m.kind === "video" ? "aspect-video" : "aspect-[4/5]"}`}>
                             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -165,7 +165,7 @@ export function PostPage({ section, slug, seq }: { section: Section; slug: strin
       {p.youtube.map((id) => (
         <div key={id} className="mx-auto mb-10 max-w-6xl px-3 sm:px-6">
           <div className="aspect-video overflow-hidden rounded-none bg-ink ">
-            <iframe className="h-full w-full" src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`} title={t.title} loading="lazy"
+            <iframe className="h-full w-full" src={`https://www.youtube-nocookie.com/embed/${id}?rel=0&playsinline=1${id === p.youtube[0] ? "&autoplay=1" : ""}`} title={t.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
           </div>
         </div>
