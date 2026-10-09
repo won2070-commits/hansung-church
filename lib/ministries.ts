@@ -37,7 +37,10 @@ export const MINISTRIES: Ministry[] = [
   { id: "global", name: "다국어 예배", en: "Global", tagline: "영어와 중국어로도 함께 예배합니다. 아이들을 위한 eKids 영어예배도 있습니다.",
     worship: (n) => /영어|중국어/.test(n), roles: ["영어예배", "중국어"],
     links: [["예배 시간 전체", "/worship/"]] },
-  { id: "care", name: "사랑부·소망대학", en: "Together", tagline: "홀리킥 사랑부와 소망대학에서 함께 예배하고 배웁니다.",
-    worship: (n) => /사랑부|소망대학/.test(n), roles: ["사랑부", "소망대학"],
+  { id: "seniors", name: "소망대학", en: "Seniors", tagline: "어르신들의 모임입니다. 매주 목요일 오전, 워십센터 2층 H-홀에 모여 함께 예배하고 배웁니다.",
+    worship: (n) => /소망대학/.test(n), roles: ["소망대학"],
+    links: [["예배 시간 전체", "/worship/"]] },
+  { id: "care", name: "홀리킥 사랑부", en: "Together", tagline: "홀리킥 사랑부에서 함께 예배합니다. 1부는 6~12세, 2부는 13세부터 청장년까지 비전센터 5층에서 모입니다.",
+    worship: (n) => /사랑부/.test(n), roles: ["사랑부"],
     links: [["예배 시간 전체", "/worship/"]] },
 ];
